@@ -162,29 +162,30 @@ export default function Screen3() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="order-1 lg:order-2 rounded-3xl bg-slate-900 dark:bg-slate-950 p-10 border border-slate-800 shadow-2xl relative overflow-hidden"
+          className="order-1 lg:order-2 rounded-3xl bg-white dark:bg-slate-950 p-10 border border-border-dark dark:border-slate-800 shadow-2xl relative overflow-hidden"
         >
           {/* Abstract Grid Background */}
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(to right, #4030e8 1px, transparent 1px), linear-gradient(to bottom, #4030e8 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+          <div className="absolute inset-0 opacity-5 dark:opacity-20 transition-opacity duration-300" style={{ backgroundImage: 'linear-gradient(to right, #4030e8 1px, transparent 1px), linear-gradient(to bottom, #4030e8 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
-          <h3 className="text-white text-2xl font-black mb-8 relative z-10">{t('Financial Health Snapshot')}</h3>
+          <h3 className="text-slate-900 dark:text-white text-2xl font-black mb-8 relative z-10">{t('Financial Health Snapshot')}</h3>
 
           <div className="grid grid-cols-2 gap-4 relative z-10">
-            <div className="bg-slate-800/80 backdrop-blur border border-slate-700 p-5 rounded-2xl flex flex-col justify-between hover:bg-slate-800 transition-colors">
-              <span className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">{t('Gross Margin')}</span>
+            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border border-border-dark dark:border-slate-700 p-5 rounded-2xl flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm text-slate-900 dark:text-white">
+              <span className="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">{t('Gross Margin')}</span>
               <span className="text-3xl font-black text-accent-success">72%</span>
             </div>
-            <div className="bg-slate-800/80 backdrop-blur border border-slate-700 p-5 rounded-2xl flex flex-col justify-between hover:bg-slate-800 transition-colors">
-              <span className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">{t('Burn Rate')}</span>
-              <span className="text-3xl font-black text-white">{t('Low')}</span>
-              <span className="text-xs text-slate-500 mt-1">{t('Offset by Outsourcing')}</span>
+            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border border-border-dark dark:border-slate-700 p-5 rounded-2xl flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm text-slate-900 dark:text-white">
+              <span className="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-wider mb-2">{t('Burn Rate')}</span>
+              <span className="text-3xl font-black text-slate-900 dark:text-white">{t('Low')}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-500 mt-1">{t('Offset by Outsourcing')}</span>
             </div>
-            <div className="col-span-2 bg-gradient-to-br from-primary/20 to-transparent border border-primary/50 p-6 rounded-2xl flex items-center justify-between group">
-              <div>
-                <span className="block text-slate-300 text-sm font-bold tracking-wider mb-1 uppercase">{t('2024 Captured Revenue')}</span>
-                <span className="block text-4xl font-black text-white group-hover:text-primary-light transition-colors">{t('~ 5 Tỷ VND')}</span>
-              </div>
-              <span className="material-symbols-outlined text-4xl text-primary-light opacity-50">account_balance_wallet</span>
+            <div className="bg-gradient-to-br from-primary/5 to-transparent dark:from-primary/20 border border-border-dark dark:border-primary/50 p-5 rounded-2xl flex flex-col justify-between group shadow-sm text-slate-900 dark:text-white">
+              <span className="block text-slate-600 dark:text-slate-300 text-sm font-bold tracking-wider mb-1 uppercase">{t('Current Revenue (End Q1 2026)')}</span>
+              <span className="block text-3xl font-black text-slate-900 dark:text-white group-hover:text-primary transition-colors">{t('$2 Million USD')}</span>
+            </div>
+            <div className="bg-gradient-to-br from-accent/5 to-transparent dark:from-accent/20 border border-border-dark dark:border-accent/50 p-5 rounded-2xl flex flex-col justify-between group shadow-sm text-slate-900 dark:text-white">
+              <span className="block text-slate-600 dark:text-slate-300 text-sm font-bold tracking-wider mb-1 uppercase">{t('Total Costs (End Q1 2026)')}</span>
+              <span className="block text-3xl font-black text-slate-900 dark:text-white group-hover:text-accent transition-colors">{t('$500K USD')}</span>
             </div>
           </div>
         </motion.div>
@@ -206,11 +207,16 @@ export default function Screen3() {
           </span>
 
           <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6">
-            50 Tỷ VND
+            2 Millions USD
           </h2>
           <p className="text-2xl text-slate-600 dark:text-slate-400 font-medium mb-12">
             {t('For')} <strong className="text-slate-900 dark:text-white">10%</strong> {t('Equity Selection')}
           </p>
+
+          <div className="flex gap-4 mb-12">
+            <span className="px-5 py-2 rounded-xl bg-white dark:bg-surface-dark border border-border-dark font-bold tracking-wide text-slate-900 dark:text-white shadow-sm">{t('Direct Equity Sale')}</span>
+            <span className="px-5 py-2 rounded-xl bg-white dark:bg-surface-dark border border-border-dark font-bold tracking-wide text-slate-900 dark:text-white shadow-sm">{t('Angel Round')}</span>
+          </div>
 
           {/* Use of Funds Bar */}
           <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-8 md:h-12 flex overflow-hidden mb-8 border border-border-dark shadow-inner">

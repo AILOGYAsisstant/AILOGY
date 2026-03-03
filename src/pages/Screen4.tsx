@@ -195,7 +195,7 @@ export default function Screen4() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute top-[10%] right-[10%] flex flex-col items-center gap-3 z-20 cursor-pointer"
+                className="absolute top-[10%] right-[20%] flex flex-col items-center gap-3 z-20 cursor-pointer"
               >
                 <div className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-md border-2 border-primary flex items-center justify-center shadow-[0_0_40px_rgba(64,48,232,0.5)]">
                   <div className="w-6 h-6 rounded-full bg-primary shadow-lg border-2 border-white"></div>
