@@ -1,25 +1,34 @@
 import { Routes, Route } from 'react-router-dom';
+import TopNavbar from './components/TopNavbar';
 import Screen1 from './pages/Screen1';
 import Screen2 from './pages/Screen2';
 import Screen3 from './pages/Screen3';
 import Screen4 from './pages/Screen4';
-import Screen5 from './pages/Screen5';
-import DashboardLayout from './layouts/DashboardLayout';
+import Screen6 from './pages/Screen6';
 
 function App() {
   return (
-    <Routes>
-      {/* Landing page without sidebar */}
-      <Route path="/" element={<Screen1 />} />
+    <div className="flex flex-col min-h-screen w-full overflow-x-hidden bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased transition-colors duration-300">
+      <TopNavbar />
+      <main className="flex-1 w-full relative">
+        <Routes>
+          {/* Landing page / Executive Summary */}
+          <Route path="/" element={<Screen1 />} />
 
-      {/* Investor portal with sidebar layout */}
-      <Route element={<DashboardLayout />}>
-        <Route path="/platform" element={<Screen2 />} />
-        <Route path="/financials" element={<Screen3 />} />
-        <Route path="/investment" element={<Screen4 />} />
-        <Route path="/team" element={<Screen5 />} />
-      </Route>
-    </Routes>
+          {/* Market & Platform */}
+          <Route path="/platform" element={<Screen2 />} />
+
+          {/* Products & Traction */}
+          <Route path="/products" element={<Screen6 />} />
+
+          {/* Strategy & Financials */}
+          <Route path="/financials" element={<Screen3 />} />
+
+          {/* Team & Investment Ask */}
+          <Route path="/team" element={<Screen4 />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 

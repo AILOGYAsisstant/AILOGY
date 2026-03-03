@@ -5,27 +5,51 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #af25f4;
-  --color-primary-dark: #3024b3;
-  --color-primary-light: #6657ff;
-  --color-background-light: #f7f5f8;
-  --color-background-dark: #121121;
-  --color-surface-dark: #1e1c2e;
-  --color-surface-light: #1e1b36;
-  --color-surface-border: #383465;
-  --color-border-dark: #383465;
-  --color-accent: #00f0ff;
-  --color-accent-success: #0bda68;
-  --color-accent-green: #0bda68;
-  --color-accent-orange: #fa6938;
-  --color-accent-blue: #0bda68;
-  --color-accent-violet: #7c3aed;
-  --color-text-secondary: #9893c8;
-  --color-card-dark: #2b1834;
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-background-light: var(--bg-light);
+  --color-background-dark: var(--bg-dark);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-light: var(--surface-light);
+  --color-surface-border: var(--surface-border);
+  --color-border-dark: var(--border-dark);
+  --color-accent: var(--accent);
+  --color-text-secondary: var(--text-secondary);
 
   --font-display: "Space Grotesk", "Public Sans", sans-serif;
   --font-body: "Noto Sans", "Public Sans", sans-serif;
   --font-sans: "Public Sans", sans-serif;
+}
+
+:root {
+  /* LIGHT MODE VARIABLES */
+  --primary: #4030e8;
+  --primary-dark: #3024b3;
+  --primary-light: #6657ff;
+  --bg-light: #f6f6f8;
+  --bg-dark: #0b0a14;
+  --surface-dark: #ffffff;
+  --surface-light: #f0eff5;
+  --surface-border: #e2e1ec;
+  --border-dark: #e2e1ec;
+  --accent: #0088cc;
+  --text-secondary: #64748b;
+}
+
+.dark {
+  /* DARK MODE VARIABLES */
+  --primary: #4030e8;
+  --primary-dark: #3024b3;
+  --primary-light: #6657ff;
+  --bg-light: #f6f6f8;
+  --bg-dark: #0b0a14;
+  --surface-dark: #131122;
+  --surface-light: #1e1b36;
+  --surface-border: #383465;
+  --border-dark: #272447;
+  --accent: #00f0ff;
+  --text-secondary: #9893c8;
 }
 
 @layer utilities {

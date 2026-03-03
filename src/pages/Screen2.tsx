@@ -1,219 +1,249 @@
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
 export default function Screen2() {
+  const { t } = useTranslation();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+  };
+
   return (
-    <div className="max-w-7xl mx-auto p-6 md:p-10 flex flex-col gap-10">
+    <div className="max-w-7xl mx-auto p-6 md:p-10 flex flex-col gap-24 min-h-screen">
+
       {/* Header Section */}
-      <header className="flex flex-col gap-2">
-        <div className="flex items-center gap-2 text-primary-light mb-2">
+      <motion.header
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col gap-4 mt-8 relative"
+      >
+        <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="relative z-10 flex items-center gap-2 text-primary mb-2">
           <span className="material-symbols-outlined text-sm">hub</span>
-          <span className="text-xs font-bold tracking-widest uppercase">Infrastructure</span>
+          <span className="text-xs font-bold tracking-widest uppercase">{t('Market & Platform')}</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">The AILOGY Intelligence Platform</h1>
-        <p className="text-slate-500 dark:text-text-secondary text-lg max-w-2xl">
-          Our vertically integrated infrastructure is designed for high-stakes government and enterprise environments, ensuring security, scalability, and sovereignty.
+        <h1 className="relative z-10 text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+          {t('Decoding the Sovereign Intelligence Market')}
+        </h1>
+        <p className="relative z-10 text-slate-600 dark:text-slate-400 text-xl max-w-3xl leading-relaxed">
+          {t('General AI fails in secure, localized contexts. We address the core vulnerabilities of national and enterprise infrastructure with a purpose-built sovereign architecture.')}
         </p>
-      </header>
+      </motion.header>
 
-      {/* Architecture Layers (4-layer stack) */}
-      <section className="flex flex-col gap-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Architecture Layers</h2>
-          <div className="hidden md:flex items-center gap-2 text-slate-500 dark:text-text-secondary text-sm">
-            <span className="w-2 h-2 rounded-full bg-accent-success animate-pulse"></span>
-            Live System Status: Operational
-          </div>
-        </div>
+      {/* 4. Problem (Pain Points) */}
+      <section className="flex flex-col gap-10">
+        <motion.h2
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white flex items-center gap-4 border-l-4 border-red-500 pl-4"
+        >
+          {t('The Critical Bottlenecks')}
+        </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1 */}
-          <div className="group relative flex flex-col gap-4 rounded-xl border border-border-dark bg-white dark:bg-surface-dark p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <span className="text-6xl font-black text-slate-900 dark:text-white">01</span>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {/* Pain Point 1 */}
+          <motion.div variants={itemVariants} className="bg-surface-light dark:bg-surface-dark p-8 rounded-3xl border border-red-500/20 hover:border-red-500/50 transition-colors shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors"></div>
+            <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined">dns</span>
             </div>
-            <div className="h-12 w-12 rounded-lg bg-surface-border/50 flex items-center justify-center text-primary-light group-hover:bg-primary group-hover:text-white transition-colors">
-              <span className="material-symbols-outlined text-2xl">dataset</span>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-3">{t('Severe Data Fragmentation')}</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{t('Valuable intelligence is locked across hundreds of siloed departmental servers, making cohesive cross-agency search biologically impossible.')}</p>
+          </motion.div>
+
+          {/* Pain Point 2 */}
+          <motion.div variants={itemVariants} className="bg-surface-light dark:bg-surface-dark p-8 rounded-3xl border border-red-500/20 hover:border-red-500/50 transition-colors shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors"></div>
+            <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined">policy</span>
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-3">{t('Sovereignty & Compliance')}</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{t('Strict data localization laws (e.g., Decree 13/ND-CP) prohibit routing sensitive state or financial data through public cloud APIs like OpenAI or Google.')}</p>
+          </motion.div>
+
+          {/* Pain Point 3 */}
+          <motion.div variants={itemVariants} className="bg-surface-light dark:bg-surface-dark p-8 rounded-3xl border border-red-500/20 hover:border-red-500/50 transition-colors shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors"></div>
+            <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined">payments</span>
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-3">{t('Exorbitant Legacy Costs')}</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{t('Maintaining legacy on-premise relational databases and paying millions of dollars annually for rigid enterprise search indices.')}</p>
+          </motion.div>
+
+          {/* Pain Point 4 */}
+          <motion.div variants={itemVariants} className="bg-surface-light dark:bg-surface-dark p-8 rounded-3xl border border-red-500/20 hover:border-red-500/50 transition-colors shadow-lg relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors"></div>
+            <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center mb-6">
+              <span className="material-symbols-outlined">psychology_alt</span>
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-3">{t('Dangerous Hallucinations')}</h3>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{t('When applied to legal or strategic frameworks, standard GenAI models frequently invent incorrect citations, rendering them useless for critical operations.')}</p>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* 5. Market Opportunity (TAM/SAM/SOM FIXED) & 6. Solution */}
+      <section className="grid lg:grid-cols-2 gap-12 items-center">
+
+        {/* Solution Container */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="p-10 rounded-3xl border border-primary/30 bg-primary/5 relative overflow-hidden flex flex-col h-full justify-center"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-10">
+            <span className="material-symbols-outlined text-9xl text-primary">verified_user</span>
+          </div>
+          <h2 className="text-2xl md:text-4xl font-black text-primary mb-6 relative z-10">{t('The AILOGY Platform Solution')}</h2>
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed relative z-10">
+            {t('A unified, air-gapped sovereign intelligence architecture. We do not just build chatbots; we build the foundational nervous system.')}
+          </p>
+
+          <ul className="space-y-4 relative z-10 flex flex-col gap-2">
+            <li className="flex items-start gap-4 p-4 rounded-xl bg-white/50 dark:bg-surface-dark/50 backdrop-blur shadow-sm border border-border-dark">
+              <span className="material-symbols-outlined text-primary-light mt-1">check_circle</span>
+              <span className="font-bold text-slate-900 dark:text-white leading-tight">
+                {t('Unified Data Lakehouse')}<br />
+                <span className="text-sm font-normal text-slate-600 dark:text-slate-400">{t('Real-time synchronization across entirely siloed state systems.')}</span>
+              </span>
+            </li>
+            <li className="flex items-start gap-4 p-4 rounded-xl bg-white/50 dark:bg-surface-dark/50 backdrop-blur shadow-sm border border-border-dark">
+              <span className="material-symbols-outlined text-accent mt-1">check_circle</span>
+              <span className="font-bold text-slate-900 dark:text-white leading-tight">
+                {t('Hardware-Agnostic Engine')}<br />
+                <span className="text-sm font-normal text-slate-600 dark:text-slate-400">{t('Deployable directly onto internal on-premise hardware clusters (Air-gapped).')}</span>
+              </span>
+            </li>
+            <li className="flex items-start gap-4 p-4 rounded-xl bg-white/50 dark:bg-surface-dark/50 backdrop-blur shadow-sm border border-border-dark">
+              <span className="material-symbols-outlined text-accent-success mt-1">check_circle</span>
+              <span className="font-bold text-slate-900 dark:text-white leading-tight">
+                {t('Zero-Hallucination Framework')}<br />
+                <span className="text-sm font-normal text-slate-600 dark:text-slate-400">{t('RAG-centric architecture generating 100% verified legal and institutional responses.')}</span>
+              </span>
+            </li>
+          </ul>
+        </motion.div>
+
+        {/* Market TAM/SAM/SOM Container WITH LIGHT MODE FIX */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="bg-surface-light dark:bg-surface-dark rounded-3xl p-10 border border-border-dark shadow-xl h-full flex flex-col"
+        >
+          <div className="flex items-center gap-4 mb-10">
+            <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-accent">
+              <span className="material-symbols-outlined text-2xl">pie_chart</span>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Data Standardization</h3>
-              <p className="text-slate-500 dark:text-text-secondary text-sm leading-relaxed">Unified ingestion pipeline capable of processing petabytes of unstructured enterprise data in real-time.</p>
-            </div>
-            <div className="mt-auto pt-4 border-t border-surface-border/50 flex items-center gap-2 text-xs text-primary-light font-mono">
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              <span>Ingest & Clean</span>
+              <h2 className="text-2xl font-black text-slate-900 dark:text-white">{t('Market Dynamics')}</h2>
+              <p className="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">{t('Vietnam & SEA Focus')}</p>
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="group relative flex flex-col gap-4 rounded-xl border border-border-dark bg-white dark:bg-surface-dark p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <span className="text-6xl font-black text-slate-900 dark:text-white">02</span>
+          <div className="relative flex-1 flex flex-col justify-center items-center gap-4 py-8">
+            {/* TAM */}
+            <div className="w-full max-w-sm rounded-[2rem] border-2 border-slate-300 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-800/50 p-6 text-center hover:border-slate-400 dark:hover:border-slate-600 transition-colors shadow-sm">
+              <div className="font-black text-3xl text-slate-700 dark:text-slate-400 mb-1">$5.8 B</div>
+              <div className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-1">TAM</div>
+              <div className="text-xs text-slate-600 dark:text-slate-400">{t('Total State & Enterprise Cloud/Data Spend (SEA)')}</div>
             </div>
-            <div className="h-12 w-12 rounded-lg bg-surface-border/50 flex items-center justify-center text-primary-light group-hover:bg-primary group-hover:text-white transition-colors">
-              <span className="material-symbols-outlined text-2xl">psychology</span>
+
+            {/* SAM */}
+            <div className="w-11/12 max-w-xs rounded-[2rem] border-2 border-primary/50 bg-primary/10 p-6 text-center -mt-6 z-10 backdrop-blur-md hover:border-primary transition-colors shadow-md">
+              <div className="font-black text-3xl text-primary mb-1">$1.2 B</div>
+              <div className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-1">SAM</div>
+              <div className="text-xs text-slate-700 dark:text-slate-300">{t('Sovereign Cloud, localized GovTech & Defense IT')}</div>
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">AI Modeling</h3>
-              <p className="text-slate-500 dark:text-text-secondary text-sm leading-relaxed">Proprietary transformer models fine-tuned for specialized sectors, reducing hallucination rates by 99%.</p>
-            </div>
-            <div className="mt-auto pt-4 border-t border-surface-border/50 flex items-center gap-2 text-xs text-primary-light font-mono">
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              <span>Train & Tune</span>
+
+            {/* SOM */}
+            <div className="w-10/12 max-w-[16rem] rounded-[2rem] border-2 border-accent bg-accent/20 p-6 text-center -mt-6 z-20 backdrop-blur-md hover:scale-105 transition-transform shadow-xl shadow-accent/20">
+              <div className="font-black text-3xl text-slate-900 dark:text-white mb-1">$250 M</div>
+              <div className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-1">SOM</div>
+              <div className="text-xs text-slate-800 dark:text-slate-200">{t('Capturable 5-year Gov AI infrastructure projects')}</div>
             </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="group relative flex flex-col gap-4 rounded-xl border border-border-dark bg-white dark:bg-surface-dark p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <span className="text-6xl font-black text-slate-900 dark:text-white">03</span>
-            </div>
-            <div className="h-12 w-12 rounded-lg bg-surface-border/50 flex items-center justify-center text-primary-light group-hover:bg-primary group-hover:text-white transition-colors">
-              <span className="material-symbols-outlined text-2xl">lightbulb</span>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Decision Intelligence</h3>
-              <p className="text-slate-500 dark:text-text-secondary text-sm leading-relaxed">Actionable insights engine with explainable AI outputs, allowing for audit trails on every decision made.</p>
-            </div>
-            <div className="mt-auto pt-4 border-t border-surface-border/50 flex items-center gap-2 text-xs text-primary-light font-mono">
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              <span>Analyze & Predict</span>
-            </div>
+          <div className="text-center mt-6">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-success/10 text-accent-success font-bold text-sm">
+              <span className="material-symbols-outlined text-sm">trending_up</span>
+              {t('Market growing at 34% CAGR driven by recent National Digital Transformation decrees.')}
+            </span>
           </div>
+        </motion.div>
 
-          {/* Card 4 */}
-          <div className="group relative flex flex-col gap-4 rounded-xl border border-border-dark bg-white dark:bg-surface-dark p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <span className="text-6xl font-black text-slate-900 dark:text-white">04</span>
+      </section>
+
+      {/* Technology Architecture Section */}
+      <section className="flex flex-col gap-10 py-10 border-t border-border-dark">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-6"
+        >
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">{t('Core Technology Architecture')}</h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('A modular, scalable, and ruthlessly secure technology stack designed specifically for massive institutional ingestion.')}</p>
+        </motion.div>
+
+        {/* Horizontal Tech Flow */}
+        <div className="grid md:grid-cols-4 gap-4 relative">
+          {/* Connector Line hidden on mobile */}
+          <div className="hidden md:block absolute top-[4.5rem] left-0 w-full h-1 bg-gradient-to-r from-red-500 via-primary to-accent-success z-0 rounded-full opacity-30"></div>
+
+          <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative z-10 flex flex-col items-center text-center group">
+            <div className="w-20 h-20 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-center text-red-500 mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-3xl">input</span>
             </div>
-            <div className="h-12 w-12 rounded-lg bg-surface-border/50 flex items-center justify-center text-primary-light group-hover:bg-primary group-hover:text-white transition-colors">
-              <span className="material-symbols-outlined text-2xl">dns</span>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-2">{t('1. Ingestion Layer')}</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-[200px]">{t('OCR pipelines parsing hardcopy legal documents & diverse legacy DBs via custom API connectors.')}</p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }} className="relative z-10 flex flex-col items-center text-center group">
+            <div className="w-20 h-20 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-center text-primary-light mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-3xl">schema</span>
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Enterprise Deployment</h3>
-              <p className="text-slate-500 dark:text-text-secondary text-sm leading-relaxed">Air-gapped or hybrid cloud deployment options designed for maximum security and data sovereignty.</p>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-2">{t('2. Vectorization & Lake')}</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-[200px]">{t('Generating multi-dimensional embeddings strictly structured for Gov Context retention.')}</p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }} className="relative z-10 flex flex-col items-center text-center group">
+            <div className="w-20 h-20 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(64,48,232,0.3)]">
+              <span className="material-symbols-outlined text-3xl">psychology</span>
             </div>
-            <div className="mt-auto pt-4 border-t border-surface-border/50 flex items-center gap-2 text-xs text-primary-light font-mono">
-              <span className="material-symbols-outlined text-sm">check_circle</span>
-              <span>Deploy & Scale</span>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-2">{t('3. Sovereign Core LLM')}</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-[200px]">{t('Mixture-of-Experts (MoE) securely inferencing in complete isolation from the external internet.')}</p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.3 }} className="relative z-10 flex flex-col items-center text-center group">
+            <div className="w-20 h-20 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-center text-accent-success mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-3xl">dashboard</span>
             </div>
-          </div>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-2">{t('4. Application APIs')}</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-[200px]">{t('Orbyte Financial, VP CP Portals, and Camera Edu integrating instantly with end-user workflows.')}</p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Market Dynamics */}
-      <section className="flex flex-col gap-6">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Market Dynamics</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* TAM */}
-          <div className="rounded-xl border border-surface-border bg-gradient-to-br from-surface-dark to-background-dark p-8 flex flex-col justify-between min-h-[200px]">
-            <div className="flex justify-between items-start">
-              <h3 className="text-text-secondary font-medium text-sm uppercase tracking-wider">Total Addressable Market</h3>
-              <span className="bg-surface-border/50 p-1.5 rounded text-white material-symbols-outlined text-sm">public</span>
-            </div>
-            <div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$5.2B+</span>
-                <span className="text-accent-success text-sm font-bold bg-accent-success/10 px-2 py-1 rounded">+12% YoY</span>
-              </div>
-              <p className="text-text-secondary text-sm mt-3">Global Enterprise AI Infrastructure spend projected by 2026.</p>
-            </div>
-          </div>
-
-          {/* SAM */}
-          <div className="rounded-xl border border-surface-border bg-gradient-to-br from-surface-dark to-background-dark p-8 flex flex-col justify-between min-h-[200px]">
-            <div className="flex justify-between items-start">
-              <h3 className="text-text-secondary font-medium text-sm uppercase tracking-wider">Serviceable Available Market</h3>
-              <span className="bg-surface-border/50 p-1.5 rounded text-white material-symbols-outlined text-sm">domain</span>
-            </div>
-            <div>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$1.8B</span>
-                <span className="text-accent-success text-sm font-bold bg-accent-success/10 px-2 py-1 rounded">+15% YoY</span>
-              </div>
-              <p className="text-text-secondary text-sm mt-3">Government and Highly Regulated Industries seeking on-prem AI.</p>
-            </div>
-          </div>
-
-          {/* SOM */}
-          <div className="rounded-xl border border-surface-border bg-gradient-to-br from-surface-dark to-background-dark p-8 flex flex-col justify-between min-h-[200px] relative overflow-hidden">
-            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/20 blur-3xl rounded-full"></div>
-            <div className="flex justify-between items-start relative z-10">
-              <h3 className="text-text-secondary font-medium text-sm uppercase tracking-wider">Serviceable Obtainable Market</h3>
-              <span className="bg-primary/20 p-1.5 rounded text-primary-light material-symbols-outlined text-sm">target</span>
-            </div>
-            <div className="relative z-10">
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl lg:text-5xl font-bold text-white tracking-tighter">$450M</span>
-                <span className="text-accent-success text-sm font-bold bg-accent-success/10 px-2 py-1 rounded">+22% YoY</span>
-              </div>
-              <p className="text-text-secondary text-sm mt-3">Immediate pipeline target for North American Defense & Finance.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Competitive Landscape */}
-      <section className="flex flex-col gap-6 pb-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Competitive Landscape</h2>
-            <p className="text-slate-500 dark:text-text-secondary mt-1">Positioning against generic cloud providers and legacy analytics.</p>
-          </div>
-          <div className="flex gap-4 text-sm text-slate-500 dark:text-text-secondary">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(64,48,232,0.8)]"></div>
-              <span className="text-slate-900 dark:text-white font-medium">AILOGY</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-slate-500"></div>
-              <span>Competitors</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-xl border border-surface-border bg-white dark:bg-surface-dark p-6 md:p-10 relative overflow-hidden min-h-[500px] flex items-center justify-center">
-          {/* Grid Lines */}
-          <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-            <div className="border-b border-r border-surface-border/30 border-dashed"></div>
-            <div className="border-b border-l border-surface-border/30 border-dashed"></div>
-            <div className="border-t border-r border-surface-border/30 border-dashed"></div>
-            <div className="border-t border-l border-surface-border/30 border-dashed"></div>
-          </div>
-
-          {/* Axis Labels */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 text-xs font-bold text-slate-500 dark:text-text-secondary tracking-widest uppercase bg-white dark:bg-surface-dark px-2">High Institutional Trust</div>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs font-bold text-slate-500 dark:text-text-secondary tracking-widest uppercase bg-white dark:bg-surface-dark px-2">Low Institutional Trust</div>
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 -rotate-90 text-xs font-bold text-slate-500 dark:text-text-secondary tracking-widest uppercase bg-white dark:bg-surface-dark px-2">Generic Solution</div>
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 rotate-90 text-xs font-bold text-slate-500 dark:text-text-secondary tracking-widest uppercase bg-white dark:bg-surface-dark px-2">High AI Customization</div>
-
-          {/* Quadrant Content */}
-          <div className="relative w-full h-[400px] max-w-3xl">
-            {/* AILOGY */}
-            <div className="absolute top-[10%] right-[10%] flex flex-col items-center gap-2 z-20">
-              <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm border-2 border-primary flex items-center justify-center shadow-[0_0_30px_rgba(64,48,232,0.4)] animate-pulse">
-                <div className="w-4 h-4 rounded-full bg-primary"></div>
-              </div>
-              <span className="text-white font-bold bg-surface-dark/80 px-2 py-1 rounded backdrop-blur-md border border-surface-border">AILOGY</span>
-            </div>
-
-            {/* Competitors */}
-            <div className="absolute top-[20%] left-[20%] flex flex-col items-center gap-2 opacity-60">
-              <div className="w-8 h-8 rounded-full bg-surface-border flex items-center justify-center"></div>
-              <span className="text-slate-500 dark:text-text-secondary text-xs">Legacy Gov Tech</span>
-            </div>
-            <div className="absolute bottom-[25%] right-[25%] flex flex-col items-center gap-2 opacity-60">
-              <div className="w-6 h-6 rounded-full bg-surface-border flex items-center justify-center"></div>
-              <span className="text-slate-500 dark:text-text-secondary text-xs">Open Source AI</span>
-            </div>
-            <div className="absolute bottom-[20%] left-[15%] flex flex-col items-center gap-2 opacity-60">
-              <div className="w-10 h-10 rounded-full bg-surface-border flex items-center justify-center"></div>
-              <span className="text-slate-500 dark:text-text-secondary text-xs">Public Cloud APIs</span>
-            </div>
-            <div className="absolute top-[45%] right-[40%] flex flex-col items-center gap-2 opacity-60">
-              <div className="w-7 h-7 rounded-full bg-surface-border flex items-center justify-center"></div>
-              <span className="text-slate-500 dark:text-text-secondary text-xs">Big Tech Ent.</span>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

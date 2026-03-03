@@ -1,230 +1,331 @@
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
 export default function Screen4() {
+  const { t } = useTranslation();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+  };
+
   return (
-    <div className="p-8 md:p-12 max-w-6xl mx-auto flex flex-col gap-10">
-      {/* Header Section */}
-      <header className="flex flex-col gap-6">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2 text-primary font-medium text-sm tracking-wide uppercase">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            Live Round
+    <div className="max-w-7xl mx-auto p-6 md:p-10 flex flex-col gap-20 min-h-screen overflow-hidden">
+
+      {/* Header */}
+      <motion.header
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col gap-4 mt-8 relative z-10"
+      >
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/20 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="flex items-center gap-2 text-primary mb-2">
+          <span className="material-symbols-outlined text-sm">groups</span>
+          <span className="text-xs font-bold tracking-widest uppercase">{t('Team & Edge')}</span>
+        </div>
+        <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+          {t('Unfair Advantage & Capital Defense')}
+        </h1>
+        <p className="text-slate-600 dark:text-slate-400 text-xl max-w-3xl leading-relaxed">
+          {t('Supported by the Hiveres ecosystem, navigated by industry veterans, and protected by extreme infrastructure lock-in. A strategic moat designed for absolute capital security.')}
+        </p>
+      </motion.header>
+
+      {/* 19. Team (With Avatars) */}
+      <section className="flex flex-col gap-10">
+        <motion.h2
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white"
+        >
+          {t('Core Leadership & Experts')}
+        </motion.h2>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {/* Founders */}
+          <motion.div variants={itemVariants} className="p-8 rounded-3xl border border-primary/30 bg-surface-light dark:bg-surface-dark shadow-xl hover:border-primary/60 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+            <h3 className="text-sm uppercase tracking-widest text-primary font-black mb-8 flex items-center gap-2 border-b border-border-dark pb-4">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              {t('Core Founders')}
+            </h3>
+            <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
+              <div className="flex items-center gap-4 group">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&h=150&q=80" alt="Đỗ Tiến Đăng" className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
+                  <span className="text-sm font-medium text-slate-500">Founder & CEO</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Thanh Bình" className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Thanh Bình</span>
+                  <span className="text-sm font-medium text-slate-500">Co-founder</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80" alt="Huỳnh Thái Học" className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary transition-colors" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Huỳnh Thái Học</span>
+                  <span className="text-sm font-medium text-slate-500">Co-founder & AI Lead</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Leadership */}
+          <motion.div variants={itemVariants} className="p-8 rounded-3xl border border-accent/30 bg-surface-light dark:bg-surface-dark shadow-xl hover:border-accent/60 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl"></div>
+            <h3 className="text-sm uppercase tracking-widest text-accent font-black mb-8 flex items-center gap-2 border-b border-border-dark pb-4">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+              {t('Leadership & Tech Experts')}
+            </h3>
+            <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
+              <div className="flex items-center gap-4 group">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Phú Bình" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 group-hover:border-accent transition-colors" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Phú Bình</span>
+                  <span className="text-sm font-medium text-slate-500">Strategic Ops</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Lan Anh" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 group-hover:border-accent transition-colors" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Lan Anh</span>
+                  <span className="text-sm font-medium text-slate-500">Growth & PnL</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Thị Kiều Anh" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 group-hover:border-accent transition-colors" />
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Thị Kiều Anh</span>
+                  <span className="text-sm font-medium text-slate-500">Technical Expert</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Advisors */}
+          <motion.div variants={itemVariants} className="p-8 rounded-3xl border border-slate-400/30 bg-surface-light dark:bg-surface-dark shadow-xl hover:border-slate-400/60 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-400/10 rounded-full blur-2xl"></div>
+            <h3 className="text-sm uppercase tracking-widest text-slate-400 font-black mb-8 flex items-center gap-2 border-b border-border-dark pb-4">
+              <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+              {t('Strategic Advisors')}
+            </h3>
+            <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="w-14 h-14 rounded-full border-2 border-slate-400/50 bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-500">
+                  <span className="material-symbols-outlined">person</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
+                  <span className="text-sm font-medium text-slate-500">Executive Advisor</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="w-14 h-14 rounded-full border-2 border-slate-400/50 bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-500">
+                  <span className="material-symbols-outlined">person</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Phú Bình</span>
+                  <span className="text-sm font-medium text-slate-500">Strategic Advisor</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* 9 & 10. Competitive Landscape & Advantage */}
+      <section className="flex flex-col gap-10 py-10 border-t border-border-dark">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4"
+        >
+          <div>
+            <h2 className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white mb-2">{t('Competitive Landscape')}</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg">{t('Positioning against generic cloud APIs, legacy analytics, and open-source wrappers.')}</p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">Angel Investment Opportunity</h1>
-          <p className="text-lg text-slate-600 dark:text-[#9893c8] max-w-2xl">
-            Strategic Early-Stage Positioning for AILOGY Infrastructure. Join us in building the sovereign AI layer for enterprise and government.
+        </motion.div>
+
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Quadrant Matrix */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="lg:col-span-7 rounded-3xl border border-border-dark bg-white dark:bg-surface-dark p-6 md:p-10 relative overflow-hidden min-h-[500px] flex items-center justify-center shadow-2xl shadow-primary/5"
+          >
+            {/* Grid Lines */}
+            <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+              <div className="border-b border-r border-border-dark/30 border-dashed"></div>
+              <div className="border-b border-l border-border-dark/30 border-dashed"></div>
+              <div className="border-t border-r border-border-dark/30 border-dashed"></div>
+              <div className="border-t border-l border-border-dark/30 border-dashed"></div>
+            </div>
+
+            {/* Axis Labels */}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[10px] md:text-sm font-black text-slate-500 tracking-widest uppercase bg-white dark:bg-surface-dark px-4">{t('High Institutional Trust')}</div>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] md:text-sm font-black text-slate-500 tracking-widest uppercase bg-white dark:bg-surface-dark px-4">{t('Low Trust / Compliance')}</div>
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 -rotate-90 text-[10px] md:text-sm font-black text-slate-500 tracking-widest uppercase bg-white dark:bg-surface-dark px-4">{t('Generic Solution')}</div>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 rotate-90 text-[10px] md:text-sm font-black text-slate-500 tracking-widest uppercase bg-white dark:bg-surface-dark px-4">{t('High Customization')}</div>
+
+            <div className="relative w-full h-[400px] max-w-2xl">
+              {/* AILOGY */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute top-[10%] right-[10%] flex flex-col items-center gap-3 z-20 cursor-pointer"
+              >
+                <div className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-md border-2 border-primary flex items-center justify-center shadow-[0_0_40px_rgba(64,48,232,0.5)]">
+                  <div className="w-6 h-6 rounded-full bg-primary shadow-lg border-2 border-white"></div>
+                </div>
+                <span className="text-white font-bold bg-slate-900 px-4 py-1.5 rounded-full shadow-2xl border border-border-dark text-sm tracking-wider">AILOGY</span>
+              </motion.div>
+
+              {/* Competitors */}
+              <div className="absolute top-[20%] left-[20%] flex flex-col items-center gap-2 opacity-60">
+                <div className="w-10 h-10 rounded-full bg-surface-border flex items-center justify-center"></div>
+                <span className="text-slate-600 dark:text-slate-500 text-xs font-bold">{t('Legacy Gov Tech')}</span>
+              </div>
+              <div className="absolute bottom-[25%] right-[25%] flex flex-col items-center gap-2 opacity-60">
+                <div className="w-8 h-8 rounded-full bg-surface-border flex items-center justify-center"></div>
+                <span className="text-slate-600 dark:text-slate-500 text-xs font-bold">{t('Open Source')}</span>
+              </div>
+              <div className="absolute bottom-[20%] left-[15%] flex flex-col items-center gap-2 opacity-60">
+                <div className="w-12 h-12 rounded-full bg-surface-border flex items-center justify-center"></div>
+                <span className="text-slate-600 dark:text-slate-500 text-xs font-bold">{t('Public Cloud APIs')}</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Advantages List */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-5 flex flex-col gap-6 justify-center"
+          >
+            <motion.div variants={itemVariants} className="flex items-start gap-5 p-4 rounded-2xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-border-dark">
+              <div className="w-12 h-12 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                <span className="material-symbols-outlined">api</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">{t('Technological Supremacy')}</h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('Deep integration capabilities replacing surface-level chat tools; MoE foundation models trained exclusively on sovereign institutional data.')}</p>
+              </div>
+            </motion.div>
+            <motion.div variants={itemVariants} className="flex items-start gap-5 p-4 rounded-2xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-border-dark">
+              <div className="w-12 h-12 shrink-0 rounded-full bg-accent/10 flex items-center justify-center text-accent mt-1">
+                <span className="material-symbols-outlined">database</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">{t('Data Moat')}</h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('Exclusive access to critical sector data feeding a continuous feedback loop that generic public LLMs legally cannot access.')}</p>
+              </div>
+            </motion.div>
+            <motion.div variants={itemVariants} className="flex items-start gap-5 p-4 rounded-2xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors border border-transparent hover:border-border-dark">
+              <div className="w-12 h-12 shrink-0 rounded-full bg-accent-success/10 flex items-center justify-center text-accent-success mt-1">
+                <span className="material-symbols-outlined">hub</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">{t('Ecosystem Leverage')}</h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('Hiveres network unlocks immediate deployment pilots within Ministry of Finance, Ministry of Public Security, and major universities.')}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 20 & 21. Hiveres Support & Exit Opportunities */}
+      <section className="grid lg:grid-cols-2 gap-8 py-10 border-t border-border-dark">
+
+        {/* Hiveres */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="p-8 md:p-12 rounded-3xl border border-primary-light/30 bg-primary/5 shadow-inner"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-14 h-14 rounded-2xl bg-primary-light/20 flex items-center justify-center">
+              <span className="material-symbols-outlined text-primary-light text-3xl">corporate_fare</span>
+            </div>
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white">{t('Hiveres Support')}</h2>
+          </div>
+          <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
+            {t('AILOGY receives unparalleled structural leverage from its parent holding, utilizing the Hiveres Technology Institute to establish deep-seated bureaucratic network pipelines.')}
           </p>
-        </div>
+          <div className="flex flex-wrap gap-3">
+            {[
+              'Bộ Tài Chính', 'Bộ Công An', 'Bộ Nội Vụ', 'Viện trí tuệ nhân tạo', 'Bộ KHCN'
+            ].map((min, idx) => (
+              <span key={idx} className="px-4 py-2 border border-primary-light/30 bg-white/50 dark:bg-surface-dark/50 backdrop-blur rounded-full text-sm font-bold text-slate-800 dark:text-slate-200 shadow-sm">{t(min)}</span>
+            ))}
+          </div>
+        </motion.div>
 
-        {/* Key Round Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-6 rounded-xl flex flex-col gap-1 shadow-sm hover:border-primary/50 transition-colors group">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">Target Raise</span>
-              <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">target</span>
-            </div>
-            <span className="text-3xl font-bold text-slate-900 dark:text-white">30-50B <span className="text-lg font-medium text-slate-500">VND</span></span>
-            <span className="text-xs text-green-500 font-medium mt-auto pt-2">+ Flexible Oversubscription</span>
-          </div>
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-6 rounded-xl flex flex-col gap-1 shadow-sm hover:border-primary/50 transition-colors group">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">Instrument</span>
-              <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">gavel</span>
-            </div>
-            <span className="text-3xl font-bold text-slate-900 dark:text-white">Direct Equity</span>
-            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-auto pt-2">Preferred Stock</span>
-          </div>
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-6 rounded-xl flex flex-col gap-1 shadow-sm hover:border-primary/50 transition-colors group">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">Stage</span>
-              <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">rocket_launch</span>
-            </div>
-            <span className="text-3xl font-bold text-slate-900 dark:text-white">Seed / Angel</span>
-            <span className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-auto pt-2">Post-Product, Pre-Scale</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Middle Section: Use of Funds */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Chart Column */}
-        <div className="lg:col-span-2 bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] rounded-xl p-8 flex flex-col shadow-sm">
-          <div className="flex justify-between items-start mb-8">
-            <div>
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">Use of Funds Allocation</h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Capital deployment strategy for next 18 months</p>
-            </div>
-            <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-              Total: 50B VND
-            </div>
+        {/* Exit & Defense */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="p-8 rounded-3xl border border-accent-success/30 bg-accent-success/5 flex flex-col justify-center flex-1 relative overflow-hidden shadow-inner"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-10 mix-blend-overlay">
+            <span className="material-symbols-outlined text-9xl">verified</span>
           </div>
 
-          {/* Bar Chart Visual */}
-          <div className="flex flex-col gap-6 flex-1 justify-center">
-            {/* Item 1 */}
-            <div className="relative group">
-              <div className="flex justify-between items-end mb-2">
-                <span className="font-medium text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-primary"></span>
-                  AI Research & Models
-                </span>
-                <span className="font-bold text-slate-900 dark:text-white">20B VND <span className="text-slate-500 dark:text-slate-400 text-sm font-normal">(40%)</span></span>
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-8 relative z-10">{t('Exit Path & Assurances')}</h2>
+
+          <div className="space-y-6 relative z-10">
+            <div className="flex items-start gap-5 p-6 border border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
+              <div className="w-12 h-12 shrink-0 rounded-full bg-accent-success/20 flex items-center justify-center mt-1">
+                <span className="material-symbols-outlined text-accent-success font-bold">account_balance</span>
               </div>
-              <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 overflow-hidden">
-                <div className="bg-primary h-full rounded-full transition-all duration-1000 w-[40%] group-hover:brightness-110 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                </div>
+              <div>
+                <h4 className="font-black text-lg text-slate-900 dark:text-white mb-2">{t('M&A and IPO Potential')}</h4>
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{t('Highly attractive target for strategic acquisition by telecom giants or international firms aiming to shortcut Vietnam’s regulatory data walls.')}</p>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 pl-5">Deep learning architectures, Custom LLMs training, specialized datasets acquisition.</p>
             </div>
 
-            {/* Item 2 */}
-            <div className="relative group">
-              <div className="flex justify-between items-end mb-2">
-                <span className="font-medium text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-indigo-500"></span>
-                  Data Infrastructure
-                </span>
-                <span className="font-bold text-slate-900 dark:text-white">10B VND <span className="text-slate-500 dark:text-slate-400 text-sm font-normal">(20%)</span></span>
+            <div className="flex items-start gap-5 p-6 border border-accent/30 bg-gradient-to-br from-white/90 to-accent/5 dark:from-surface-dark/90 dark:to-accent/10 backdrop-blur-md rounded-2xl shadow-xl hover:scale-[1.02] transition-transform">
+              <div className="w-12 h-12 shrink-0 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                <span className="material-symbols-outlined text-accent font-bold">policy</span>
               </div>
-              <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 overflow-hidden">
-                <div className="bg-indigo-500 h-full rounded-full transition-all duration-1000 w-[20%] group-hover:brightness-110"></div>
-              </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 pl-5">High-performance GPU servers, secure edge computing nodes, sovereign cloud setup.</p>
-            </div>
-
-            {/* Item 3 */}
-            <div className="relative group">
-              <div className="flex justify-between items-end mb-2">
-                <span className="font-medium text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-purple-500"></span>
-                  Product Development
-                </span>
-                <span className="font-bold text-slate-900 dark:text-white">5B VND <span className="text-slate-500 dark:text-slate-400 text-sm font-normal">(10%)</span></span>
-              </div>
-              <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 overflow-hidden">
-                <div className="bg-purple-500 h-full rounded-full transition-all duration-1000 w-[10%] group-hover:brightness-110"></div>
-              </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 pl-5">Enterprise UI/UX, API Integration layers, GovTech compliance modules.</p>
-            </div>
-
-            {/* Remaining / Operations */}
-            <div className="relative group opacity-60">
-              <div className="flex justify-between items-end mb-2">
-                <span className="font-medium text-slate-900 dark:text-white flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-slate-500"></span>
-                  Operations & Reserve
-                </span>
-                <span className="font-bold text-slate-900 dark:text-white">15B VND <span className="text-slate-500 dark:text-slate-400 text-sm font-normal">(30%)</span></span>
-              </div>
-              <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-4 overflow-hidden">
-                <div className="bg-slate-500 h-full rounded-full transition-all duration-1000 w-[30%]"></div>
+              <div>
+                <h4 className="font-black text-lg text-slate-900 dark:text-white mb-2">{t('3-Year Capital Return Guarantee')}</h4>
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+                  {t('If the company is not listed or has not experienced a liquidity event within 3 years, the founders commit to repurchasing the shares at original value plus the average commercial bank interest rate.')}
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Impact Column */}
-        <div className="flex flex-col gap-4">
-          <div className="bg-gradient-to-br from-primary to-indigo-900 rounded-xl p-6 text-white flex flex-col justify-between h-full relative overflow-hidden group">
-            {/* Background Pattern */}
-            <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all"></div>
-            <div>
-              <h3 className="text-lg font-bold mb-2">Projected ROI</h3>
-              <div className="text-4xl font-black mb-1">12x</div>
-              <p className="text-indigo-100 text-sm opacity-90">Expected valuation multiple within 36 months based on current GovTech contracts pipeline.</p>
-            </div>
-            <div className="mt-8 pt-6 border-t border-white/20">
-              <div className="flex items-center gap-3">
-                <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
-                  <span className="material-symbols-outlined text-white">trending_up</span>
-                </div>
-                <div>
-                  <div className="text-sm font-medium">Next Valuation Target</div>
-                  <div className="text-lg font-bold">600B VND</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] rounded-xl p-6 flex flex-col shadow-sm">
-            <h3 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-4">Burn Rate Projection</h3>
-            <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-bold text-slate-900 dark:text-white">~1.2B</span>
-              <span className="text-sm text-slate-500">VND / Month</span>
-            </div>
-            <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mt-3 mb-1">
-              <div className="bg-green-500 w-[30%] h-full rounded-full"></div>
-            </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400">Runway: 24 Months</p>
-          </div>
-        </div>
       </section>
 
-      {/* Bottom Section: Strategic Value */}
-      <section>
-        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Strategic Value Unlocked</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Card 1 */}
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-5 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1e1c33] transition-colors group cursor-default">
-            <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined">account_balance</span>
-            </div>
-            <h3 className="font-bold text-slate-900 dark:text-white mb-2">Gov Pipeline</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Secures capacity to service 3 pending national-level data infrastructure contracts.</p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-5 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1e1c33] transition-colors group cursor-default">
-            <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-4 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined">security</span>
-            </div>
-            <h3 className="font-bold text-slate-900 dark:text-white mb-2">IP Ownership</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Full regional IP rights for proprietary Vietnamese Large Language Models.</p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-5 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1e1c33] transition-colors group cursor-default">
-            <div className="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400 mb-4 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined">hub</span>
-            </div>
-            <h3 className="font-bold text-slate-900 dark:text-white mb-2">Network Effect</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Establishes AILOGY as the standard protocol for inter-agency data sharing.</p>
-          </div>
-
-          {/* Card 4 */}
-          <div className="bg-white dark:bg-surface-dark border border-slate-200 dark:border-[#383465] p-5 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1e1c33] transition-colors group cursor-default">
-            <div className="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400 mb-4 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined">speed</span>
-            </div>
-            <h3 className="font-bold text-slate-900 dark:text-white mb-2">Speed to Market</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Reduces deployment time for new enterprise instances from 4 weeks to 2 days.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <div className="mt-8 border-t border-slate-200 dark:border-slate-800 pt-8 pb-16">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-slate-100 dark:bg-[#1e1c33] p-6 rounded-2xl">
-          <div className="flex flex-col gap-1">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Ready to proceed?</h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm">Review the full term sheet or schedule a direct line with our founders.</p>
-          </div>
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <button className="flex-1 md:flex-none items-center justify-center gap-2 px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-white font-medium hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors inline-flex">
-              <span className="material-symbols-outlined text-[20px]">download</span>
-              Download Term Sheet
-            </button>
-            <button className="flex-1 md:flex-none items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25 inline-flex">
-              <span className="material-symbols-outlined text-[20px]">calendar_today</span>
-              Schedule Meeting
-            </button>
-          </div>
-        </div>
-
-        <div className="text-center mt-8 text-xs text-slate-400 dark:text-slate-600">
-          © 2024 AILOGY Inc. Confidential & Proprietary. All rights reserved. <br/>
-          This document is for informational purposes only and does not constitute an offer to sell securities.
-        </div>
-      </div>
     </div>
   );
 }
