@@ -30,7 +30,7 @@ export default function Screen6() {
                 <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
                 <div className="relative z-10 flex items-center gap-2 text-primary mb-2">
                     <span className="material-symbols-outlined text-sm">rocket</span>
-                    <span className="text-xs font-bold tracking-widest uppercase">{t('Products & Sự Tăng Trưởng')}</span>
+                    <span className="text-xs font-bold tracking-widest uppercase">{t('Products & Traction')}</span>
                 </div>
                 <h1 className="relative z-10 text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
                     {t('Real-World Deployment')}
@@ -62,125 +62,139 @@ export default function Screen6() {
 
                     {/* Product 1: Orbyte */}
                     <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-border-dark">
-                            {/* Image Placeholder */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Orbyte Demo" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                            <div className="absolute top-4 right-4 z-20 bg-background-light dark:bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-full border border-border-dark text-xs font-bold text-primary flex items-center gap-1 shadow-lg">
-                                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Live
-                            </div>
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/thu_vien_so_sp.png`} alt="Orbyte Demo" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                         </div>
                         <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark">
-                                <span className="material-symbols-outlined">finance</span>
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent z-0 pointer-events-none"></div>
+                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark bg-white overflow-hidden">
+                                <img src={`${import.meta.env.BASE_URL}assets/images/orbyte.jpg`} alt="Orbyte Logo" className="w-full h-full object-cover" />
                             </div>
                             <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Orbyte')}</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Our flagship financial risk assessment model. Utilized by leading domestic financial institutions for instant, high-precision credit scoring and anomaly detection.')}
+                                {t('Đọc văn bản và chuyển đổi thành metadata (Thư viện số)')}
                             </p>
-                            <div className="inline-flex items-center gap-2 max-w-max px-3 py-1.5 rounded-lg bg-surface-light dark:bg-background-dark border border-border-dark text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {t('Finance Sector')}
-                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Product 2: Specialized LLMs */}
+                    {/* Product 2: LLMs */}
                     <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-border-dark">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80" alt="LLM Interface" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/llms.png`} alt="LLM Interface" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-accent text-slate-900 flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark">
-                                <span className="material-symbols-outlined">g_translate</span>
-                            </div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Sovereign LLMs')}</h3>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/5 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('LLMs')}</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Proprietary Large Language Models fine-tuned on Vietnamese syntax and legal frameworks, highly effective at detecting toxic content and filtering systemic risks.')}
+                                {t('Nền tảng Mô hình Ngôn ngữ Lớn')}
                             </p>
-                            <div className="inline-flex items-center gap-2 max-w-max px-3 py-1.5 rounded-lg bg-surface-light dark:bg-background-dark border border-border-dark text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {t('Core NLP Tech')}
-                            </div>
                         </div>
                     </motion.div>
 
                     {/* Product 3: Camera Edu */}
                     <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-accent-success/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent-success/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-border-dark">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent-success/20 to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Camera Edu" className="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal group-hover:scale-110 transition-all duration-700" />
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent-success/20 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/dong_do.png`} alt="Camera Edu" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-accent-success text-white flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark">
-                                <span className="material-symbols-outlined">videocam</span>
-                            </div>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent-success/10 to-transparent z-0 pointer-events-none"></div>
                             <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Camera Edu')}</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('A computer vision school safety monitoring system tracking thousands of real-time feeds to ensure campus compliance and security entirely autonomously.')}
+                                {t('Mô hình giám sát an toàn học đường (Camera Edu)')}
                             </p>
-                            <div className="inline-flex items-center gap-2 max-w-max px-3 py-1.5 rounded-lg bg-surface-light dark:bg-background-dark border border-border-dark text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {t('Computer Vision')}
-                            </div>
                         </div>
                     </motion.div>
 
                     {/* Product 4: Gov AI Portal */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2 lg:mt-8">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-border-dark">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1451187580459-434902bd0c0e?auto=format&fit=crop&w=800&q=80" alt="Gov Portal Dashboard" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2">
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/quoc_hoi.jpg`} alt="Gov Portal Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-red-500 text-white flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark">
-                                <span className="material-symbols-outlined">account_balance</span>
-                            </div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Gov AI Portal')}</h3>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-red-500/10 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('AI Portal')}</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Advanced proposal and deployment for the Government Office (VP CP). Creating a centralized, air-gapped portal for secure interstate data interrogation.')}
+                                {t('AI Portal (proposal với VP CP)')}
                             </p>
-                            <div className="inline-flex items-center gap-2 max-w-max px-3 py-1.5 rounded-lg bg-surface-light dark:bg-background-dark border border-border-dark text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {t('Federal Deploy')}
-                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Product 5: EVN Standardizer */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 lg:mt-16">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-border-dark">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80" alt="Grid Data" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+                    {/* Product 5: Novaland */}
+                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary-light/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary-light/20 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/toshiba.jpg`} alt="Enterprise Corporate" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark">
-                                <span className="material-symbols-outlined">bolt</span>
-                            </div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('EVN Data Standardizer')}</h3>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary-light/10 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Novaland Project')}</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Intelligent parsing pipeline deployed for EVN, actively normalizing massive historical energy grid records into structured actionable unified vectors.')}
+                                {t('Dự án với novaland (xem trong proposal)')}
                             </p>
-                            <div className="inline-flex items-center gap-2 max-w-max px-3 py-1.5 rounded-lg bg-surface-light dark:bg-background-dark border border-border-dark text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {t('Utility Sector')}
-                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Product 6: Enterprise Proposals */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary-light/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 lg:mt-24">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden border-b border-border-dark">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary-light/20 to-transparent z-10"></div>
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Enterprise Corporate" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+                    {/* Product 6: EVN Standardizer */}
+                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2">
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/evn_sp.png`} alt="Grid Data" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-primary-light text-white flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark">
-                                <span className="material-symbols-outlined">domain</span>
-                            </div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Enterprise Custom Models')}</h3>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-orange-500/10 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('EVN Standardizer')}</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Customized implementations and proposals for mega-corporations (e.g., Novaland) focusing on real-estate trend prediction and internal knowledge bases.')}
+                                {t('Mô hình chuẩn hoá dữ liệu (EVN)')}
                             </p>
-                            <div className="inline-flex items-center gap-2 max-w-max px-3 py-1.5 rounded-lg bg-surface-light dark:bg-background-dark border border-border-dark text-xs font-bold text-slate-700 dark:text-slate-300">
-                                {t('Mega-Corporations')}
-                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Product 7: Finister */}
+                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-slate-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/10 hover:-translate-y-2">
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-slate-500/20 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/kiem_toan_sp.png`} alt="Finister Data" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-500/10 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Finister')}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                                {t('Mô hình chấm điểm tài chính (Finister)')}
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Product 8: Placeholder */}
+                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/rui_ro.png`} alt="Financial Risk Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
+                        </div>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Mô hình rủi ro')}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                                {t('Mô hình đánh giá rủi ro tài chính')}
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Product 9: Placeholder */}
+                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2">
+                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent z-10 pointer-events-none"></div>
+                            <img src={`${import.meta.env.BASE_URL}assets/images/kiem_duyet.png`} alt="Content Moderation Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
+                        </div>
+                        <div className="p-8 flex flex-col flex-1 relative pt-10">
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/5 to-transparent z-0 pointer-events-none"></div>
+                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Kiểm duyệt Nội dung')}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
+                                {t('Mô hình phát hiện nội dung độc hại')}
+                            </p>
                         </div>
                     </motion.div>
 

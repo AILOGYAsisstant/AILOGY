@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
+import { useTranslation, Trans } from 'react-i18next';
 import { motion } from 'framer-motion';
 
 export default function Screen1() {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white relative w-full overflow-x-hidden">
+    <div className="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white relative w-full overflow-x-hidden transition-colors duration-300">
 
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 opacity-10 dark:opacity-20 pointer-events-none" style={{ backgroundSize: '40px 40px', backgroundImage: 'linear-gradient(to right, #272447 1px, transparent 1px), linear-gradient(to bottom, #272447 1px, transparent 1px)' }}></div>
@@ -29,7 +29,7 @@ export default function Screen1() {
               </div>
 
               <h1 className="text-6xl md:text-8xl font-black tracking-tight text-slate-900 dark:text-white mb-4 leading-[1.1]">
-                <span className="text-glow">AILOGY</span>
+                <img src={`${import.meta.env.BASE_URL}assets/images/banner.png`} alt="AILOGY" className="h-[120px] md:h-[192px] object-contain dark:invert drop-shadow-xl" />
               </h1>
 
               <div className="flex items-center gap-4 mb-8">
@@ -39,21 +39,16 @@ export default function Screen1() {
               </div>
 
               <h2 className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 font-medium max-w-2xl mb-10 leading-relaxed">
-                {t('The Sovereign Intelligence Foundation for Governments and Enterprises')}
+                {t('Tiên phong công nghệ dữ liệu và trí tuệ nhân tạo')}
               </h2>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-                <Link to="/platform" className="w-full sm:w-auto px-8 py-4 rounded bg-slate-900 text-white dark:bg-white dark:text-background-dark text-base font-bold hover:bg-slate-800 dark:hover:bg-slate-200 transition-all text-center shadow-lg shadow-primary/20 hover:scale-[1.02]">
-                  {t('Explore Platform')}
-                </Link>
-              </div>
 
               {/* Presenter Info */}
               <div className="flex items-center gap-6 pt-8 border-t border-border-dark max-w-md">
                 <div className="flex flex-col">
                   <span className="text-xs text-slate-500 uppercase tracking-wider mb-1">{t('Presenter')}</span>
                   <span className="font-bold text-slate-900 dark:text-white">Đỗ Tiến Đăng</span>
-                  <span className="text-sm text-slate-600 dark:text-slate-400">Founder & CEO</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Founder</span>
                 </div>
                 <div className="w-px h-10 bg-border-dark"></div>
                 <div className="flex flex-col">
@@ -193,7 +188,9 @@ export default function Screen1() {
 
                 <h4 className="text-3xl font-black text-slate-900 dark:text-white mb-4">{t('The Proven Success Model')}</h4>
                 <p className="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
-                  {t('Much like')} <strong className="text-primary font-black ml-1">Palantir Technologies</strong> {t('revolutionized Western government intelligence and enterprise logistics by bridging the gap between fragmented data and operational analytics, AILOGY captures the same high-barrier, high-retention market in our region.')}
+                  <Trans i18nKey="Much like Palantir Technologies revolutionized Western government intelligence and enterprise logistics by bridging the gap between fragmented data and operational analytics, AILOGY captures the same high-barrier, high-retention market in region.">
+                    Much like <strong className="text-primary font-black ml-1">Palantir Technologies</strong> revolutionized Western government intelligence and enterprise logistics by bridging the gap between fragmented data and operational analytics, AILOGY captures the same high-barrier, high-retention market in region.
+                  </Trans>
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4">

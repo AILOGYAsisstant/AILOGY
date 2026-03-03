@@ -22,6 +22,12 @@
   --font-sans: "Public Sans", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  /* Match TopNavbar height (h-20) */
+}
+
 :root {
   /* LIGHT MODE VARIABLES */
   --primary: #4030e8;
@@ -56,14 +62,16 @@
   .text-glow {
     text-shadow: 0 0 20px rgba(64, 48, 232, 0.5);
   }
+
   .glass-panel {
     background: rgba(19, 17, 34, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+
   .dashboard-grid {
     background-image: linear-gradient(rgba(64, 48, 232, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(64, 48, 232, 0.1) 1px, transparent 1px);
+      linear-gradient(90deg, rgba(64, 48, 232, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 }

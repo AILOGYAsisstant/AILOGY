@@ -208,7 +208,7 @@ export default function Screen2() {
         {/* Horizontal Tech Flow */}
         <div className="grid md:grid-cols-4 gap-4 relative">
           {/* Connector Line hidden on mobile */}
-          <div className="hidden md:block absolute top-[4.5rem] left-0 w-full h-1 bg-gradient-to-r from-red-500 via-primary to-accent-success z-0 rounded-full opacity-30"></div>
+          <div className="hidden md:block absolute top-[2.5rem] left-0 w-full h-1 bg-gradient-to-r from-red-500 via-primary to-accent-success z-0 rounded-full opacity-30"></div>
 
           <motion.div variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative z-10 flex flex-col items-center text-center group">
             <div className="w-20 h-20 rounded-full bg-surface-light dark:bg-surface-dark border-4 border-slate-200 dark:border-slate-800 shadow-xl flex items-center justify-center text-red-500 mb-6 group-hover:scale-110 transition-transform">
