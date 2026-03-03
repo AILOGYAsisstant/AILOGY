@@ -222,20 +222,6 @@ export default function Screen1() {
           </div>
         </div>
       </section>
-
-      {/* Footer CTA */}
-      <footer className="bg-surface-light dark:bg-surface-dark border-t border-border-dark py-8 mt-auto">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-500 dark:text-slate-400">
-            <p>© 2026 AILOGY Inc. {t('All rights reserved.')}</p>
-            <div className="flex gap-4 uppercase tracking-widest">
-              <span>{t('Strictly Confidential')}</span>
-              <span className="hidden sm:inline">•</span>
-              <span>{t('Investor Relations')}</span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

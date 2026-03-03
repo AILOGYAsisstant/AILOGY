@@ -67,21 +67,18 @@ export default function Screen4() {
             </h3>
             <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
               <div className="flex items-center gap-4 group">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&h=150&q=80" alt="Đỗ Tiến Đăng" className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary transition-colors" />
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
                   <span className="text-sm font-medium text-slate-500">Founder & CEO</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Thanh Bình" className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary transition-colors" />
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Thanh Bình</span>
                   <span className="text-sm font-medium text-slate-500">Co-founder</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80" alt="Huỳnh Thái Học" className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary transition-colors" />
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Huỳnh Thái Học</span>
                   <span className="text-sm font-medium text-slate-500">Co-founder & AI Lead</span>
@@ -99,21 +96,18 @@ export default function Screen4() {
             </h3>
             <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
               <div className="flex items-center gap-4 group">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Phú Bình" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 group-hover:border-accent transition-colors" />
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Phú Bình</span>
                   <span className="text-sm font-medium text-slate-500">Strategic Ops</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Lan Anh" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 group-hover:border-accent transition-colors" />
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Lan Anh</span>
                   <span className="text-sm font-medium text-slate-500">Growth & PnL</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80" alt="Nguyễn Thị Kiều Anh" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30 group-hover:border-accent transition-colors" />
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Thị Kiều Anh</span>
                   <span className="text-sm font-medium text-slate-500">Technical Expert</span>
@@ -131,18 +125,12 @@ export default function Screen4() {
             </h3>
             <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
               <div className="flex items-center gap-4 group opacity-80">
-                <div className="w-14 h-14 rounded-full border-2 border-slate-400/50 bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-500">
-                  <span className="material-symbols-outlined">person</span>
-                </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
                   <span className="text-sm font-medium text-slate-500">Executive Advisor</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group opacity-80">
-                <div className="w-14 h-14 rounded-full border-2 border-slate-400/50 bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-500">
-                  <span className="material-symbols-outlined">person</span>
-                </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Phú Bình</span>
                   <span className="text-sm font-medium text-slate-500">Strategic Advisor</span>
@@ -323,9 +311,21 @@ export default function Screen4() {
             </div>
           </div>
         </motion.div>
-
       </section>
 
+      {/* Footer CTA */}
+      <footer className="bg-surface-light dark:bg-surface-dark border-t border-border-dark py-8 mt-auto">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-500 dark:text-slate-400">
+            <p>© 2026 AILOGY Inc. {t('All rights reserved.')}</p>
+            <div className="flex gap-4 uppercase tracking-widest">
+              <span>{t('Strictly Confidential')}</span>
+              <span className="hidden sm:inline">•</span>
+              <span>{t('Investor Relations')}</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

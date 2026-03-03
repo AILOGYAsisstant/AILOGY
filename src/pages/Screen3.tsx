@@ -118,42 +118,30 @@ export default function Screen3() {
             <p className="text-slate-600 dark:text-slate-400">{t('A deterministic pathway from hyper-local infiltration to global unicorn status.')}</p>
           </div>
 
-          <div className="flex gap-4 group">
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold shadow-lg shadow-primary/30 z-10">1</div>
-              <div className="w-0.5 h-full bg-border-dark group-hover:bg-primary/50 transition-colors mt-2"></div>
-            </div>
-            <div className="pb-8">
-              <h4 className="font-black text-lg text-slate-900 dark:text-white mb-2 tracking-tight">{t('2024: The Penetration Phase')}</h4>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                {t('Focus on capturing strategic anchors: Vice-PM proposals (VP CP), heavy tech like Novaland, and essential financial nodes. Establishing the base credibility.')}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4 group">
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full border-2 border-primary bg-background-light dark:bg-background-dark flex items-center justify-center text-primary font-bold shadow-lg shadow-primary/10 z-10">2</div>
-              <div className="w-0.5 h-full bg-border-dark group-hover:bg-primary/50 transition-colors mt-2"></div>
-            </div>
-            <div className="pb-8">
-              <h4 className="font-black text-lg text-slate-900 dark:text-white mb-2 tracking-tight">{t('2026: Lateral Network Expansion')}</h4>
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                {t('Leveraging Hiveres Institute connections to propagate our software across provincial tech departments, hospitals, and national education boards.')} <span className="font-bold text-accent-success">{t('Target Revenue: $30M')}</span>
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-4 group">
-            <div className="flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full border-2 border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark flex items-center justify-center text-slate-400 font-bold z-10">3</div>
-            </div>
-            <div className="pb-2">
-              <h4 className="font-black text-lg text-slate-400 mb-2 tracking-tight">{t('2028: The Unicorn Horizon')}</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                {t('Expansion into the SEA sovereign cloud sector (e.g., Laos, Cambodia, Indonesia GovTech). Reaching absolute scale.')} <span className="font-bold border border-slate-300 dark:border-slate-700 px-2 py-0.5 rounded ml-2">{t('Valuation Target: $1B+')}</span>
-              </p>
-            </div>
+          <div className="relative pl-4 border-l-2 border-border-dark dark:border-slate-800 ml-4 py-2 flex flex-col gap-8">
+            {/* Timeline Items */}
+            {[
+              { date: '02/2025', title: 'Thành lập công ty', desc: 'Chính thức thành lập công ty và xây dựng đội ngũ AI, Data và Product cốt lõi. Hoàn thiện định hướng phát triển nền tảng trí tuệ nhân tạo xử lý và chuẩn hóa dữ liệu.' },
+              { date: '05/2025', title: 'Hoàn thiện mô hình đọc hiểu dữ liệu văn bản', desc: 'Phát triển thành công mô hình AI đọc hiểu và trích xuất thông tin từ văn bản tài chính – hành chính. Hệ thống giúp tự động hóa quy trình xử lý tài liệu và giảm đáng kể thời gian thao tác thủ công.' },
+              { date: '07/2025', title: 'Chuyển giao thư viện số cho Học viện Tài chính', desc: 'Triển khai hệ thống thư viện số tích hợp AI tìm kiếm ngữ nghĩa cho Học viện Tài chính. Giải pháp giúp nâng cao hiệu quả quản lý và tra cứu tài liệu học thuật.' },
+              { date: '09/2025', title: 'Nhận đầu tư 500,000 USD', desc: 'Hoàn tất vòng gọi vốn Seed với tổng giá trị 500,000 USD. Nguồn vốn được sử dụng để mở rộng đội ngũ và phát triển sản phẩm nền tảng.' },
+              { date: '10/2025', title: 'Chuyển giao mô hình chuẩn hoá dữ liệu cho EVN', desc: 'Triển khai hệ thống chuẩn hóa dữ liệu bằng AI cho Tập đoàn Điện lực Việt Nam. Giải pháp giúp đồng bộ dữ liệu và nâng cao chất lượng báo cáo quản trị.' },
+              { date: '12/2025', title: 'Tư vấn cấu trúc dữ liệu cho Bộ Tài chính', desc: 'Thực hiện tư vấn và thiết kế kiến trúc dữ liệu cho Bộ Tài chính. Đề xuất lộ trình chuyển đổi số dựa trên nền tảng AI và Data Governance.' },
+              { date: '01/2026', title: 'Bàn giao sản phẩm cho Kiểm toán Nhà nước & ký kết hợp tác Nam Việt', desc: 'Bàn giao hệ thống phân tích dữ liệu cho Kiểm toán Nhà nước Việt Nam. Đồng thời ký kết hợp tác với Công ty Nam Việt để phát triển hệ thống tư vấn giáo dục thông minh.' },
+              { date: '02/2026', title: 'Ký kết hợp đồng với VNPost, VPQH, Finister', desc: 'Ký kết triển khai giải pháp AI với Tổng công ty Bưu điện Việt Nam, Văn phòng Quốc hội Việt Nam và Finister. Đánh dấu bước mở rộng mạnh mẽ vào khối cơ quan nhà nước và doanh nghiệp lớn.' }
+            ].map((milestone, i) => (
+              <div key={i} className="relative group">
+                <div className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-primary/40 border-2 border-white dark:border-background-dark group-hover:bg-primary transition-colors"></div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-bold text-primary text-base">{t(milestone.date)}</span>
+                    <span className="text-slate-400 dark:text-slate-500 hidden sm:inline">–</span>
+                    <span className="font-bold text-slate-800 dark:text-white text-base">{t(milestone.title)}</span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-1.5">{t(milestone.desc)}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
