@@ -97,13 +97,13 @@ export default function Screen4() {
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Nguyễn Thị Lan Anh</span>
+                  <span className="font-bold text-lg">Th.S Nguyễn Thị Lan Anh</span>
                   <span className="text-sm font-medium text-slate-500">Giám Đốc Vận Hành</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Huỳnh Thái Học</span>
+                  <span className="font-bold text-lg">TS. Huỳnh Thái Học</span>
                   <span className="text-sm font-medium text-slate-500">Giám Đốc Công Nghệ</span>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function Screen4() {
             <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
               <div className="flex items-center gap-4 group opacity-80">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
+                  <span className="font-bold text-lg">TS. Đỗ Tiến Đăng</span>
                   <span className="text-sm font-medium text-slate-500">Cố vấn chiến lược</span>
                 </div>
               </div>
@@ -132,8 +132,14 @@ export default function Screen4() {
               </div>
               <div className="flex items-center gap-4 group opacity-80">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Hoàng Thị Kiều Anh</span>
+                  <span className="font-bold text-lg">TS. Hoàng Thị Kiều Anh</span>
                   <span className="text-sm font-medium text-slate-500">Chuyên Gia Toán Tính Toán</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">TS. Phạm Đức Tĩnh</span>
+                  <span className="text-sm font-medium text-slate-500">Cố vấn nghiên cứu khoa học</span>
                 </div>
               </div>
             </div>
