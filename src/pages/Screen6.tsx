@@ -32,7 +32,7 @@ export default function Screen6() {
                     <span className="material-symbols-outlined text-sm">rocket</span>
                     <span className="text-xs font-bold tracking-widest uppercase">{t('Products & Traction')}</span>
                 </div>
-                <h1 className="relative z-10 text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
+                <h1 className="relative z-10 text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
                     {t('Real-World Deployment')}
                 </h1>
                 <p className="relative z-10 text-slate-600 dark:text-slate-400 text-xl max-w-3xl leading-relaxed">
@@ -57,192 +57,176 @@ export default function Screen6() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-
-                    {/* Product 1: Orbyte */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/thu_vien_so_sp.png`} alt="Orbyte Demo" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent z-0 pointer-events-none"></div>
-                            <div className="absolute -top-6 left-8 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg border-4 border-white dark:border-surface-dark bg-white overflow-hidden">
-                                <img src={`${import.meta.env.BASE_URL}assets/images/orbyte.jpg`} alt="Orbyte Logo" className="w-full h-full object-cover" />
+                    {[
+                        { title: 'Orbyte', desc: 'Đọc văn bản và chuyển đổi thành metadata', icon: 'library_books' },
+                        { title: 'LLMs', desc: 'Xây dựng các mô hình từ đầu', icon: 'psychology' },
+                        { title: 'Camera Edu', desc: 'Mô hình giám sát an toàn học đường', icon: 'videocam' },
+                        { title: 'AI Portal', desc: 'AI Portal', icon: 'account_balance' },
+                        { title: 'Novaland Project', desc: 'Dự án với novaland', icon: 'location_city' },
+                        { title: 'EVN Standardizer', desc: 'Mô hình chuẩn hoá dữ liệu', icon: 'bolt' },
+                        { title: 'Finister', desc: 'Mô hình chấm điểm tài chính', icon: 'fact_check' },
+                        { title: 'Mô hình rủi ro', desc: 'Mô hình đánh giá rủi ro tài chính', icon: 'warning' },
+                        { title: 'Kiểm duyệt Nội dung', desc: 'Mô hình phát hiện nội dung độc hại', icon: 'gpp_bad' },
+                    ].map((prod, idx) => (
+                        <motion.div key={idx} variants={itemVariants} className="p-4 rounded-xl border border-border-dark bg-white dark:bg-surface-dark flex flex-row items-center gap-4 shadow-sm hover:border-primary/50 transition-colors">
+                            <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0">
+                                <span className="material-symbols-outlined text-2xl">{prod.icon}</span>
                             </div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Orbyte')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Đọc văn bản và chuyển đổi thành metadata (Thư viện số)')}
-                            </p>
-                        </div>
-                    </motion.div>
+                            <div className="flex-1">
+                                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1 leading-tight">{t(prod.title)}</h3>
+                                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed line-clamp-2">{t(prod.desc)}</p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
 
-                    {/* Product 2: LLMs */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/llms.png`} alt="LLM Interface" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/5 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('LLMs')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Nền tảng Mô hình Ngôn ngữ Lớn')}
-                            </p>
-                        </div>
-                    </motion.div>
+                {/* Product Gallery */}
+                <motion.h2
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-4 mt-16"
+                >
+                    {t('Triển khai thực tế')}
+                    <span className="h-px bg-border-dark flex-1 ml-4 hidden md:block"></span>
+                </motion.h2>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="w-full overflow-hidden relative mt-8"
+                >
+                    {/* Fade Masks */}
+                    <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-bg-light dark:from-bg-dark to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-bg-light dark:from-bg-dark to-transparent z-10 pointer-events-none"></div>
 
-                    {/* Product 3: Camera Edu */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-accent-success/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent-success/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent-success/20 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/dong_do.png`} alt="Camera Edu" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent-success/10 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Camera Edu')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Mô hình giám sát an toàn học đường (Camera Edu)')}
-                            </p>
-                        </div>
-                    </motion.div>
+                    <div className="flex w-max animate-scroll gap-4 py-2 hover:pause">
+                        {[
+                            'evn(2).png', 'evn.png', 'kiểm toán (1).png', 'kiểm toán .png', 'kiểm toán(1).png',
+                            'kiểm toán(3).png', 'kiểm toán(4).png', 'kiểm toán.png', 'thư viện số.png',
+                            'z7586005315882_2df0673084d0555202c67061c93d71db.jpg', 'z7586008061761_0dd51ac224605bfff0ecc7fe6c808930.jpg',
+                            'evn(2).png', 'evn.png', 'kiểm toán (1).png', 'kiểm toán .png', 'kiểm toán(1).png',
+                            'kiểm toán(3).png', 'kiểm toán(4).png', 'kiểm toán.png', 'thư viện số.png',
+                            'z7586005315882_2df0673084d0555202c67061c93d71db.jpg', 'z7586008061761_0dd51ac224605bfff0ecc7fe6c808930.jpg'
+                        ].map((img, i) => (
+                            <img key={i} src={`${import.meta.env.BASE_URL}assets/images/products/${img}`} className="w-72 md:w-80 h-40 md:h-48 object-cover rounded-xl border border-border-dark shadow-sm hover:scale-[1.02] transition-transform cursor-pointer" />
+                        ))}
+                    </div>
+                </motion.div>
 
-                    {/* Product 4: Gov AI Portal */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-red-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/quoc_hoi.jpg`} alt="Gov Portal Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-red-500/10 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('AI Portal')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('AI Portal (proposal với VP CP)')}
-                            </p>
-                        </div>
-                    </motion.div>
+                {/* Seminar Gallery */}
+                <motion.h2
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-4 mt-16"
+                >
+                    {t('Các hoạt động')}
+                    <span className="h-px bg-border-dark flex-1 ml-4 hidden md:block"></span>
+                </motion.h2>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="w-full overflow-hidden relative mt-8"
+                >
+                    {/* Fade Masks */}
+                    <div className="absolute top-0 left-0 w-16 md:w-32 h-full bg-gradient-to-r from-bg-light dark:from-bg-dark to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-bg-light dark:from-bg-dark to-transparent z-10 pointer-events-none"></div>
 
-                    {/* Product 5: Novaland */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary-light/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary-light/20 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/toshiba.jpg`} alt="Enterprise Corporate" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary-light/10 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Novaland Project')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Dự án với novaland (xem trong proposal)')}
-                            </p>
-                        </div>
-                    </motion.div>
+                    <div className="flex w-max animate-scroll gap-4 py-2 [animation-direction:reverse] hover:pause">
+                        {[
+                            'Bộ Y Tế.jpg', 'EVN.jpeg', 'bộ tài chính 2.JPG',
+                            'nam việt 3.JPG', 'quốc hội 2.jpg',
+                            'toshiba.JPG', 'đông đô.png',
+                            'Bộ Y Tế.jpg', 'EVN.jpeg', 'bộ tài chính 2.JPG',
+                            'nam việt 3.JPG', 'quốc hội 2.jpg',
+                            'toshiba.JPG', 'đông đô.png'
+                        ].map((img, i) => (
+                            <img key={i} src={`${import.meta.env.BASE_URL}assets/images/activities/${img}`} className="w-72 md:w-80 h-40 md:h-48 object-cover rounded-xl border border-border-dark shadow-sm hover:scale-[1.02] transition-transform cursor-pointer" />
+                        ))}
+                    </div>
+                </motion.div>
 
-                    {/* Product 6: EVN Standardizer */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-orange-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/evn_sp.png`} alt="Grid Data" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                {/* Press & Articles Links */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="flex flex-col gap-4 mt-8 max-w-4xl"
+                >
+                    <a href="https://www.mof.gov.vn/cong-nghe-thong-tin-va-chuyen-doi-so/tin-tuc-su-kien-3/ai-trong-nganh-tai-chinh-viet-nam-tu-ha-tang-du-lieu-den-van-hanh-thong-minh" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-4 px-6 rounded-2xl bg-white dark:bg-surface-dark border border-border-dark hover:border-primary/50 shadow-sm transition-all duration-300 hover:shadow-md">
+                        <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors line-clamp-2 pr-4 text-sm md:text-base">
+                            {t('AI trong ngành tài chính Việt Nam: Từ hạ tầng dữ liệu đến vận hành thông minh')}
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+                            <span className="material-symbols-outlined text-sm">arrow_forward</span>
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-orange-500/10 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('EVN Standardizer')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Mô hình chuẩn hoá dữ liệu (EVN)')}
-                            </p>
-                        </div>
-                    </motion.div>
+                    </a>
 
-                    {/* Product 7: Finister */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-slate-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-slate-500/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-slate-500/20 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/kiem_toan_sp.png`} alt="Finister Data" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <a href="https://cds.moh.gov.vn/trang-chu/-/asset_publisher/9VNAsbzkEbQA/content/hoi-thao-ai-y-te-thanh-cong-ra-mat-mang-luoi-v-rhain-va-thuc-ay-cac-giai-phap-ai-y-te-co-trach-nhiem/pop_up?_101_INSTANCE_9VNAsbzkEbQA_viewMode=print&_101_INSTANCE_9VNAsbzkEbQA_languageId=vi_VN" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-4 px-6 rounded-2xl bg-white dark:bg-surface-dark border border-border-dark hover:border-accent/50 shadow-sm transition-all duration-300 hover:shadow-md">
+                        <span className="font-bold text-slate-800 dark:text-slate-200 group-hover:text-accent transition-colors line-clamp-2 pr-4 text-sm md:text-base">
+                            {t('Hội thảo AI Y tế thành công, ra mắt Mạng lưới V-RHAIN và thúc đẩy các giải pháp AI Y tế có trách nhiệm')}
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors shrink-0">
+                            <span className="material-symbols-outlined text-sm">arrow_forward</span>
                         </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-500/10 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Finister')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Mô hình chấm điểm tài chính (Finister)')}
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Product 8: Placeholder */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/rui_ro.png`} alt="Financial Risk Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Mô hình rủi ro')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Mô hình đánh giá rủi ro tài chính')}
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Product 9: Placeholder */}
-                    <motion.div variants={itemVariants} className="group rounded-3xl border border-border-dark bg-white dark:bg-surface-dark overflow-hidden flex flex-col hover:border-accent/50 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2">
-                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden flex items-center justify-center">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent z-10 pointer-events-none"></div>
-                            <img src={`${import.meta.env.BASE_URL}assets/images/kiem_duyet.png`} alt="Content Moderation Dashboard" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 z-0" />
-                        </div>
-                        <div className="p-8 flex flex-col flex-1 relative pt-10">
-                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent/5 to-transparent z-0 pointer-events-none"></div>
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 mt-4">{t('Kiểm duyệt Nội dung')}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed flex-1">
-                                {t('Mô hình phát hiện nội dung độc hại')}
-                            </p>
-                        </div>
-                    </motion.div>
-
+                    </a>
                 </motion.div>
             </section>
 
             {/* 8. Trusted Partners */}
             <section className="flex flex-col gap-12 py-16 border-t border-border-dark mt-10 relative">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none"></div>
-                <motion.h2
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white text-center mb-8 relative z-10"
+                    className="text-center relative z-10"
                 >
-                    {t('Trusted by the Nation’s Pillars')}
-                </motion.h2>
+                    <h2 className="text-2xl md:text-4xl font-black text-primary mb-4">
+                        {t('Đối tác')}
+                    </h2>
+                    <p className="text-slate-900 dark:text-white text-xl md:text-3xl font-bold">
+                        {t('Niềm Tin Của Các Trụ Cột Quốc Gia')}
+                    </p>
+                </motion.div>
 
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto relative z-10"
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto relative z-10"
                 >
-                    {/* Partners Badges with hover states */}
+                    {/* Partners Logos */}
                     {[
-                        { icon: 'account_balance', name: 'Văn Phòng Quốc Hội', color: 'text-primary' },
-                        { icon: 'request_quote', name: 'Bộ Tài Chính', color: 'text-primary' },
-                        { icon: 'health_and_safety', name: 'Bộ Y Tế', color: 'text-primary' },
-                        { icon: 'bolt', name: 'EVN', color: 'text-accent' },
-                        { icon: 'local_shipping', name: 'VNPOST', color: 'text-accent' },
-                        { icon: 'fact_check', name: 'Kiểm toán nhà nước', color: 'text-primary-light' },
-                        { icon: 'account_balance_wallet', name: 'Tổng cục thuế', color: 'text-primary-light' },
-                        { icon: 'location_city', name: 'NOVALAND', color: 'text-slate-500' },
-                        { icon: 'school', name: 'ĐH Công Nghiệp HN', color: 'text-slate-500' },
-                        { icon: 'school', name: 'ĐH Công Thương HCM', color: 'text-slate-500' },
-                        { icon: 'school', name: 'Học Viện Tài Chính', color: 'text-slate-500' },
-                        { icon: 'business', name: 'Công ty CP Nam Việt', color: 'text-slate-500' }
+                        { img: 'Emblem_of_Vietnam.svg.webp', name: 'Văn Phòng Quốc Hội' },
+                        { img: 'Logo_Bộ_Tài_chính.png', name: 'Bộ Tài Chính' },
+                        { img: 'Ministry_of_Health_(Vietnam)_Logo.svg.png', name: 'Bộ Y Tế' },
+                        { img: 'env.webp', name: 'EVN' },
+                        { img: 'Vietnam_Post_logo.png', name: 'VNPOST' },
+                        { img: 'Logo_Kiểm_toán_nhà_nước_Việt_Nam.jpg', name: 'Kiểm toán nhà nước' },
+                        { img: 'tongcucthue.png', name: 'Tổng cục thuế' },
+                        { img: 'Novaland_Logo.svg', name: 'NOVALAND' },
+                        { img: 'haui.png', name: 'ĐH Công Nghiệp HN' },
+                        { img: 'huit.jpeg', name: 'ĐH Công Thương HCM' },
+                        { img: 'Học_viện_tài_chính.jpg', name: 'Học Viện Tài Chính' },
+                        { img: 'Navico.png', name: 'Công ty CP Nam Việt' }
                     ].map((partner, index) => (
                         <motion.div
                             key={index}
                             variants={itemVariants}
                             whileHover={{ scale: 1.05, y: -5 }}
-                            className="px-6 py-4 rounded-2xl border border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md shadow-lg shadow-black/5 flex items-center gap-3 cursor-default hover:border-primary/50 transition-colors"
+                            className="p-6 rounded-2xl border border-border-dark bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md shadow-lg shadow-black/5 flex flex-col items-center justify-center gap-4 cursor-default hover:border-primary/50 transition-colors text-center"
                         >
-                            <span className={`material-symbols-outlined ${partner.color}`}>{partner.icon}</span>
-                            <span className="font-bold text-slate-900 dark:text-white">{t(partner.name)}</span>
+                            <div className="h-16 flex items-center justify-center">
+                                <img src={`${import.meta.env.BASE_URL}assets/images/partners/${partner.img}`} alt={partner.name} className="max-h-full max-w-full object-contain drop-shadow-sm" />
+                            </div>
+                            <span className="font-bold text-slate-900 dark:text-white text-sm">{t(partner.name)}</span>
                         </motion.div>
                     ))}
                 </motion.div>

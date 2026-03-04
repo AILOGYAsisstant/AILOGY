@@ -163,6 +163,7 @@ export default function Screen2() {
           <div className="relative flex-1 flex flex-col justify-center items-center gap-4 py-8">
             {/* TAM */}
             <div className="w-full max-w-sm rounded-[2rem] border-2 border-slate-300 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-800/50 p-6 text-center hover:border-slate-400 dark:hover:border-slate-600 transition-colors shadow-sm">
+              <div className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">{t('Năm 2025')}</div>
               <div className="font-black text-3xl text-slate-700 dark:text-slate-400 mb-1">$5.8 B</div>
               <div className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-1">TAM</div>
               <div className="text-xs text-slate-600 dark:text-slate-400">{t('Total State & Enterprise Cloud/Data Spend (SEA)')}</div>
@@ -170,6 +171,7 @@ export default function Screen2() {
 
             {/* SAM */}
             <div className="w-11/12 max-w-xs rounded-[2rem] border-2 border-primary/50 bg-primary/10 p-6 text-center -mt-6 z-10 backdrop-blur-md hover:border-primary transition-colors shadow-md">
+              <div className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">{t('Năm 2026')}</div>
               <div className="font-black text-3xl text-primary mb-1">$1.2 B</div>
               <div className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-1">SAM</div>
               <div className="text-xs text-slate-700 dark:text-slate-300">{t('Sovereign Cloud, localized GovTech & Defense IT')}</div>
@@ -177,6 +179,7 @@ export default function Screen2() {
 
             {/* SOM */}
             <div className="w-10/12 max-w-[16rem] rounded-[2rem] border-2 border-accent bg-accent/20 p-6 text-center -mt-6 z-20 backdrop-blur-md hover:scale-105 transition-transform shadow-xl shadow-accent/20">
+              <div className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">{t('Năm 2030')}</div>
               <div className="font-black text-3xl text-slate-900 dark:text-white mb-1">$250 M</div>
               <div className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-widest mb-1">SOM</div>
               <div className="text-xs text-slate-800 dark:text-slate-200">{t('Capturable 5-year Gov AI infrastructure projects')}</div>
@@ -242,6 +245,47 @@ export default function Screen2() {
             <p className="text-xs text-slate-600 dark:text-slate-400 max-w-[200px]">{t('Orbyte Financial, VP CP Portals, and Camera Edu integrating instantly with end-user workflows.')}</p>
           </motion.div>
         </div>
+      </section>
+
+      {/* Milestones / Cột mốc */}
+      <section className="flex flex-col gap-10 py-16 border-t border-border-dark mt-8">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col gap-6"
+        >
+          <div className="mb-2">
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-2">{t('Các cột mốc quan trọng')}</h2>
+            <p className="text-slate-600 dark:text-slate-400">{t('Lộ trình rõ ràng từ thâm nhập cục bộ đến vị thế kỳ lân toàn cầu.')}</p>
+          </div>
+
+          <div className="relative pl-4 border-l-2 border-border-dark dark:border-slate-800 ml-4 py-2 flex flex-col gap-8">
+            {/* Timeline Items */}
+            {[
+              { date: '02/2025', title: 'Thành lập công ty', desc: 'Chính thức thành lập công ty và xây dựng đội ngũ AI, Data và Product cốt lõi gồm nhiều tiến sỹ toán và trí tuệ nhân tạo người Việt từ nhiều phòng nghiên cứu trên thế giới. Hoàn thiện định hướng phát triển nền tảng trí tuệ nhân tạo xử lý và chuẩn hóa dữ liệu.' },
+              { date: '05/2025', title: 'Hoàn thiện mô hình đọc hiểu dữ liệu văn bản', desc: 'Phát triển thành công mô hình AI đọc hiểu và trích xuất thông tin từ văn bản tài chính – hành chính. Hệ thống giúp tự động hóa quy trình xử lý tài liệu và giảm đáng kể thời gian thao tác thủ công.' },
+              { date: '07/2025', title: 'Chuyển giao thư viện số cho Học viện Tài chính', desc: 'Triển khai hệ thống thư viện số tích hợp AI tìm kiếm ngữ nghĩa cho Học viện Tài chính. Giải pháp giúp nâng cao hiệu quả quản lý và tra cứu tài liệu học thuật.' },
+              { date: '09/2025', title: 'Nhận đầu tư 1.500.000 USD', desc: 'Hoàn tất vòng gọi vốn Seed với tổng giá trị 1.500.000 USD. Nguồn vốn được sử dụng để mở rộng đội ngũ và phát triển sản phẩm nền tảng.' },
+              { date: '10/2025', title: 'Chuyển giao mô hình chuẩn hoá dữ liệu cho EVN', desc: 'Triển khai hệ thống chuẩn hóa dữ liệu bằng AI cho Tập đoàn Điện lực Việt Nam. Giải pháp giúp đồng bộ dữ liệu và nâng cao chất lượng báo cáo quản trị.' },
+              { date: '12/2025', title: 'Tư vấn cấu trúc dữ liệu cho Bộ Tài chính', desc: 'Thực hiện tư vấn và thiết kế kiến trúc dữ liệu cho Bộ Tài chính. Đề xuất lộ trình chuyển đổi số dựa trên nền tảng AI và Data Governance.' },
+              { date: '01/2026', title: 'Bàn giao sản phẩm cho Kiểm toán Nhà nước & ký kết hợp tác Nam Việt', desc: 'Bàn giao hệ thống phân tích dữ liệu cho Kiểm toán Nhà nước Việt Nam. Đồng thời ký kết hợp tác với Công ty Nam Việt để phát triển hệ thống tư vấn giáo dục thông minh.' },
+              { date: '02/2026', title: 'Ký kết hợp đồng với VNPost, VPQH, Finister', desc: 'Ký kết triển khai giải pháp AI với Tổng công ty Bưu điện Việt Nam, Văn phòng Quốc hội Việt Nam và Finister. Đánh dấu bước mở rộng mạnh mẽ vào khối cơ quan nhà nước và doanh nghiệp lớn.' }
+            ].map((milestone, i) => (
+              <div key={i} className="relative group">
+                <div className="absolute -left-[23px] top-1.5 w-3 h-3 rounded-full bg-primary/40 border-2 border-white dark:border-background-dark group-hover:bg-primary transition-colors"></div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-bold text-primary text-base">{t(milestone.date)}</span>
+                    <span className="text-slate-400 dark:text-slate-500 hidden sm:inline">–</span>
+                    <span className="font-bold text-slate-800 dark:text-white text-base">{t(milestone.title)}</span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mt-1.5">{t(milestone.desc)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
     </div>

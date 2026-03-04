@@ -68,20 +68,14 @@ export default function Screen4() {
             <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
-                  <span className="text-sm font-medium text-slate-500">Founder & CEO</span>
+                  <span className="font-bold text-lg">TS. Đỗ Tiến Đăng</span>
+                  <span className="text-sm font-medium text-slate-500">Đồng Sáng Lập</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Thanh Bình</span>
-                  <span className="text-sm font-medium text-slate-500">Co-founder</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 group">
-                <div className="flex flex-col">
-                  <span className="font-bold text-lg">Huỳnh Thái Học</span>
-                  <span className="text-sm font-medium text-slate-500">Co-founder & AI Lead</span>
+                  <span className="text-sm font-medium text-slate-500">Giám đốc điều hành</span>
                 </div>
               </div>
             </div>
@@ -98,19 +92,19 @@ export default function Screen4() {
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Phú Bình</span>
-                  <span className="text-sm font-medium text-slate-500">Strategic Ops</span>
+                  <span className="text-sm font-medium text-slate-500">Giám Đốc Kinh Doanh</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Nguyễn Lan Anh</span>
-                  <span className="text-sm font-medium text-slate-500">Growth & PnL</span>
+                  <span className="font-bold text-lg">Nguyễn Thị Lan Anh</span>
+                  <span className="text-sm font-medium text-slate-500">Giám Đốc Vận Hành</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg">Nguyễn Thị Kiều Anh</span>
-                  <span className="text-sm font-medium text-slate-500">Technical Expert</span>
+                  <span className="font-bold text-lg">Huỳnh Thái Học</span>
+                  <span className="text-sm font-medium text-slate-500">Giám Đốc Công Nghệ</span>
                 </div>
               </div>
             </div>
@@ -127,13 +121,19 @@ export default function Screen4() {
               <div className="flex items-center gap-4 group opacity-80">
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
-                  <span className="text-sm font-medium text-slate-500">Executive Advisor</span>
+                  <span className="text-sm font-medium text-slate-500">Cố vấn chiến lược</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 group opacity-80">
                 <div className="flex flex-col">
                   <span className="font-bold text-lg">Nguyễn Phú Bình</span>
-                  <span className="text-sm font-medium text-slate-500">Strategic Advisor</span>
+                  <span className="text-sm font-medium text-slate-500">Cố Vấn Hạ Tầng Dữ Liệu</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Hoàng Thị Kiều Anh</span>
+                  <span className="text-sm font-medium text-slate-500">Chuyên Gia Toán Tính Toán</span>
                 </div>
               </div>
             </div>
@@ -312,20 +312,6 @@ export default function Screen4() {
           </div>
         </motion.div>
       </section>
-
-      {/* Footer CTA */}
-      <footer className="bg-surface-light dark:bg-surface-dark border-t border-border-dark py-8 mt-auto">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-500 dark:text-slate-400">
-            <p>© 2026 AILOGY Inc. {t('All rights reserved.')}</p>
-            <div className="flex gap-4 uppercase tracking-widest">
-              <span>{t('Strictly Confidential')}</span>
-              <span className="hidden sm:inline">•</span>
-              <span>{t('Investor Relations')}</span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

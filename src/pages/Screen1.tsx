@@ -5,6 +5,19 @@ import { motion } from 'framer-motion';
 export default function Screen1() {
   const { t } = useTranslation();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+  };
+
   return (
     <div className="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white relative w-full overflow-x-hidden transition-colors duration-300">
 
@@ -15,45 +28,41 @@ export default function Screen1() {
       {/* 1. Cover Slide */}
       <section className="relative pt-24 pb-32 overflow-hidden min-h-[90vh] flex items-center">
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="flex flex-col items-center justify-center gap-12 max-w-4xl mx-auto">
 
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="flex-1 text-left"
+              className="flex flex-col items-center text-center"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-light dark:bg-surface-dark border border-primary/30 text-xs font-medium text-primary mb-6">
-                <span className="material-symbols-outlined text-sm">rocket_launch</span>
-                {t('PITCH DECK 2026')}
-              </div>
+
 
               <h1 className="text-6xl md:text-8xl font-black tracking-tight text-slate-900 dark:text-white mb-4 leading-[1.1]">
                 <img src={`${import.meta.env.BASE_URL}assets/images/banner.png`} alt="AILOGY" className="h-[120px] md:h-[192px] object-contain dark:invert drop-shadow-xl" />
               </h1>
 
-              <div className="flex items-center gap-4 mb-8">
+              <div className="flex items-center justify-center gap-4 mb-8">
                 <span className="px-3 py-1 bg-primary/10 text-primary font-bold text-sm rounded">AI</span>
                 <span className="px-3 py-1 bg-accent/10 text-accent-success font-bold text-sm rounded">DATA</span>
                 <span className="px-3 py-1 border border-border-dark text-slate-600 dark:text-slate-400 font-bold text-sm rounded">PLATFORM</span>
               </div>
 
-              <h2 className="text-2xl md:text-3xl text-slate-700 dark:text-slate-300 font-medium max-w-2xl mb-10 leading-relaxed">
-                {t('Tiên phong công nghệ dữ liệu và trí tuệ nhân tạo')}
+              <h2 className="text-2xl md:text-4xl text-slate-700 dark:text-slate-300 font-bold whitespace-nowrap mb-10 leading-relaxed">
+                {t('TIÊN PHONG CÔNG NGHỆ DỮ LIỆU VÀ TRÍ TUỆ NHÂN TẠO')}
               </h2>
 
 
               {/* Presenter Info */}
-              <div className="flex items-center gap-6 pt-8 border-t border-border-dark max-w-md">
+              <div className="flex items-center justify-center gap-6 pt-8 border-t border-border-dark w-full">
                 <div className="flex flex-col">
                   <span className="text-xs text-slate-500 uppercase tracking-wider mb-1">{t('Presenter')}</span>
-                  <span className="font-bold text-slate-900 dark:text-white">Đỗ Tiến Đăng</span>
-                  <span className="text-sm text-slate-600 dark:text-slate-400">Founder</span>
+                  <span className="font-bold text-slate-900 dark:text-white">TS. Đỗ Tiến Đăng</span>
                 </div>
                 <div className="w-px h-10 bg-border-dark"></div>
                 <div className="flex flex-col">
-                  <span className="text-xs text-slate-500 uppercase tracking-wider mb-1">{t('Date')}</span>
-                  <span className="font-bold text-slate-900 dark:text-white">March 2026</span>
+                  <span className="text-xs text-slate-500 uppercase tracking-wider mb-1">{t('Tháng 3')}</span>
+                  <span className="font-bold text-slate-900 dark:text-white">Năm 2026</span>
                 </div>
                 <div className="w-px h-10 bg-border-dark"></div>
                 <div className="flex flex-col items-center">
@@ -63,22 +72,12 @@ export default function Screen1() {
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="flex-1 relative hidden lg:block"
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 blur-[100px] rounded-full"></div>
-              <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2674&auto=format&fit=crop" alt="Abstract Data" className="relative z-10 rounded-3xl border border-white/10 shadow-2xl opacity-90 object-cover h-[500px] w-full mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 hover:scale-[1.02]" />
-            </motion.div>
-
           </div>
         </div>
       </section>
 
       {/* 2. Giới thiệu công ty (Who is AILOGY) */}
-      <section className="py-24 border-t border-border-dark bg-surface-light/50 dark:bg-surface-dark/30 relative">
+      <section id="company-overview" className="py-24 border-t border-border-dark bg-surface-light/50 dark:bg-surface-dark/30 relative">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -222,6 +221,118 @@ export default function Screen1() {
           </div>
         </div>
       </section>
+
+      {/* Team Section */}
+      <section id="team" className="flex flex-col gap-10 py-16 border-t border-border-dark mt-8 max-w-7xl mx-auto px-6 w-full">
+        <motion.header
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-4 relative z-10"
+        >
+          <div className="flex items-center gap-2 text-primary mb-2">
+            <span className="material-symbols-outlined text-sm">groups</span>
+            <span className="text-xl font-bold tracking-widest uppercase">{t('Đội ngũ và lợi thế')}</span>
+          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            {t('Lợi thế về công nghệ và hệ sinh thái')}
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-base max-w-3xl leading-relaxed">
+            {t('Được hỗ trợ bởi hệ sinh thái Hiveres, dẫn dắt bởi những chuyên gia kỳ cựu trong ngành và được bảo vệ bởi rào cản hạ tầng cực kỳ kiên cố từ các nơi trên thế giới.')}
+          </p>
+        </motion.header>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {/* Founders */}
+          <motion.div variants={itemVariants} className="p-8 rounded-3xl border border-primary/30 bg-surface-light dark:bg-surface-dark shadow-xl hover:border-primary/60 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+            <h3 className="text-sm uppercase tracking-widest text-primary font-black mb-8 flex items-center gap-2 border-b border-border-dark pb-4">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              {t('Đồng Sáng Lập')}
+            </h3>
+            <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
+              <div className="flex items-center gap-4 group">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">TS. Đỗ Tiến Đăng</span>
+                  <span className="text-sm font-medium text-slate-500">Đồng Sáng Lập</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Thanh Bình</span>
+                  <span className="text-sm font-medium text-slate-500">Giám đốc điều hành</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Leadership */}
+          <motion.div variants={itemVariants} className="p-8 rounded-3xl border border-accent/30 bg-surface-light dark:bg-surface-dark shadow-xl hover:border-accent/60 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl"></div>
+            <h3 className="text-sm uppercase tracking-widest text-accent font-black mb-8 flex items-center gap-2 border-b border-border-dark pb-4">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+              {t('Đội ngũ điều hành')}
+            </h3>
+            <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
+              <div className="flex items-center gap-4 group">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Phú Bình</span>
+                  <span className="text-sm font-medium text-slate-500">Giám Đốc Kinh Doanh</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Thị Lan Anh</span>
+                  <span className="text-sm font-medium text-slate-500">Giám Đốc Vận Hành</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Huỳnh Thái Học</span>
+                  <span className="text-sm font-medium text-slate-500">Giám Đốc Công Nghệ</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Advisors */}
+          <motion.div variants={itemVariants} className="p-8 rounded-3xl border border-slate-400/30 bg-surface-light dark:bg-surface-dark shadow-xl hover:border-slate-400/60 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-400/10 rounded-full blur-2xl"></div>
+            <h3 className="text-sm uppercase tracking-widest text-slate-400 font-black mb-8 flex items-center gap-2 border-b border-border-dark pb-4">
+              <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+              {t('Cố Vấn Chiến Lược')}
+            </h3>
+            <div className="flex flex-col gap-6 text-slate-900 dark:text-white relative z-10">
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Đỗ Tiến Đăng</span>
+                  <span className="text-sm font-medium text-slate-500">Cố vấn chiến lược</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Nguyễn Phú Bình</span>
+                  <span className="text-sm font-medium text-slate-500">Cố Vấn Hạ Tầng Dữ Liệu</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group opacity-80">
+                <div className="flex flex-col">
+                  <span className="font-bold text-lg">Hoàng Thị Kiều Anh</span>
+                  <span className="text-sm font-medium text-slate-500">Chuyên Gia Toán Tính Toán</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
     </div>
   );
 }

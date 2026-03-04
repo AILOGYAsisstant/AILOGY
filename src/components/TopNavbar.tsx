@@ -33,20 +33,20 @@ export default function TopNavbar() {
                 </a>
 
                 <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-                    <a href="#executive-summary" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
-                        {i18n.language === 'vn' ? <>Tóm Tắt<br />Điều Hành</> : <>Executive<br />Summary</>}
+                    <a href="#company-overview" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
+                        {i18n.language === 'vn' ? <>Tổng quan</> : <>Overview</>}
+                    </a>
+                    <a href="#team" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
+                        {i18n.language === 'vn' ? <>Điều Hành</> : <>Executive</>}
                     </a>
                     <a href="#market-platform" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
                         {i18n.language === 'vn' ? <>Thị Trường<br />& Nền Tảng</> : <>Market<br />& Platform</>}
                     </a>
-                    <a href="#products-traction" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
-                        {i18n.language === 'vn' ? <>Sản Phẩm &<br />Sự Tăng Trưởng</> : <>Products<br />& Traction</>}
+                    <a href="#company" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
+                        {i18n.language === 'vn' ? <>Sản Phẩm & <br />Sự Tăng Trưởng</> : <>Products & Traction </>}
                     </a>
-                    <a href="#strategy-financials" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
-                        {i18n.language === 'vn' ? <>Chiến Lược<br />& Tài Chính</> : <>Strategy<br />& Financials</>}
-                    </a>
-                    <a href="#team-ask" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
-                        {i18n.language === 'vn' ? <>Đội Ngũ &<br />Yêu Cầu Đầu Tư</> : <>Team<br />& Ask</>}
+                    <a href="#financials-ask" className="text-sm font-medium transition-colors text-slate-500 hover:text-slate-800 dark:hover:text-white text-center leading-[1.3]">
+                        {i18n.language === 'vn' ? <>Tài Chính<br />& Đầu Tư</> : <>Financials<br />& Ask</>}
                     </a>
                 </nav>
 
@@ -95,20 +95,20 @@ export default function TopNavbar() {
             {/* Mobile Dropdown Menu */}
             {isMobileMenuOpen && (
                 <div className="lg:hidden bg-white dark:bg-[#131122] border-b border-border-dark px-6 py-4 flex flex-col gap-4 shadow-lg">
-                    <a href="#executive-summary" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
-                        {t('Executive Summary')}
+                    <a href="#company-overview" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
+                        {t('Summary')}
+                    </a>
+                    <a href="#team" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
+                        {t('Executive')}
                     </a>
                     <a href="#market-platform" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
                         {t('Market & Platform')}
                     </a>
-                    <a href="#products-traction" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
-                        {t('Products & Traction')}
+                    <a href="#company" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
+                        {t('Company')}
                     </a>
-                    <a href="#strategy-financials" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
-                        {t('Strategy & Financials')}
-                    </a>
-                    <a href="#team-ask" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
-                        {t('Team & Ask')}
+                    <a href="#financials-ask" onClick={() => setIsMobileMenuOpen(false)} className="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-primary">
+                        {t('Financials & Ask')}
                     </a>
                 </div>
             )}

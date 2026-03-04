@@ -17,9 +17,9 @@
   --color-accent: var(--accent);
   --color-text-secondary: var(--text-secondary);
 
-  --font-display: "Space Grotesk", "Public Sans", sans-serif;
-  --font-body: "Noto Sans", "Public Sans", sans-serif;
-  --font-sans: "Public Sans", sans-serif;
+  --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 html {
@@ -73,5 +73,23 @@ html {
     background-image: linear-gradient(rgba(64, 48, 232, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(64, 48, 232, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-50% - 0.5rem));
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+
+  .hover\:pause:hover {
+    animation-play-state: paused;
   }
 }
