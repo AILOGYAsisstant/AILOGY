@@ -8,17 +8,9 @@ const repoName = process.env.GITHUB_REPOSITORY
   ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
   : '/AILOGY/'
 
-// // https://vite.dev/config/
-// export default defineConfig({
-//   plugins: [react(), tailwindcss()],
-//   base: repoName,
-// })
-
-
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: repoName,
-  server: {
-    allowedHosts: 'all',
-  }
+
 })
